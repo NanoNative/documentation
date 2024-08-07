@@ -12,7 +12,8 @@ import NanoBanner from "@/public/images/NanoBanner.svg";
 export default function HeroHome() {
   return (
     <section className="relative">
-      <PageIllustration />
+      {/*below component is for the background vertical bars of banner*/}
+      {/*<PageIllustration />*/}
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Hero content : pb-12 pt-32 md:pb-20 md:pt-40*/}
         <div className="">
@@ -76,17 +77,18 @@ export default function HeroHome() {
                     height={500}
                     alt="Nano Banner"
                 />
+              </div>
             {/*<h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1] md:text-6xl"*/}
             {/*  data-aos="zoom-y-out"*/}
             {/*  data-aos-delay={150}*/}
             {/*>*/}
             {/*  Welcome to Nano*/}
             {/*</h1>*/}
-              </div>
+
             </div>
             <div className="mx-auto max-w-3xl">
               <p
-                  className="mb-8 text-lg text-gray-700"
+                  className="mb-8 text-lg text-nanoBlack"
                   data-aos="zoom-y-out"
                   data-aos-delay={300}
               >
@@ -105,12 +107,12 @@ export default function HeroHome() {
                   data-aos-delay={450}
                 >
                   <a
-                      className="btn group mb-4 w-full bg-gradient-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
+                      className="btn group mb-4 w-full bg-[length:100%_100%] bg-[bottom] text-white shadow hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto  bg-gradient-to-r from-nanoPink to-nanoBlue"
                       href="https://github.com/NanoNative/nano/blob/main/README.md"
                       target="_blank"
                       rel="noopener noreferrer"
                   >
-                    <span className="relative inline-flex items-center">
+                    <span className="relative inline-flex items-center text-nanoBlack">
                       Learn more{" "}
                       {/*<span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">*/}
                       {/*  -&gt;*/}
@@ -139,8 +141,8 @@ export default function HeroHome() {
                   nanonative.org
                 </span>
               </div>
-              <div className="font-mono text-gray-500">
-                <div className="text-purple-200">
+              <div className="font-mono text-500">
+                <div className="text-nanoWhite">
                   Start your journey with
                 </div>
 
