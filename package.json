@@ -1,15 +1,13 @@
 {
   "homepage": "https://NanoNative.github.io/documentation",
-  "name": "simple-next",
+  "name": "documentation",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^2.0.4",
