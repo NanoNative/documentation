@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import Logo from "./logo";
+import Layout from "@/app/documentation-nano/page";
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
@@ -11,6 +12,33 @@ export default function Header() {
   // detect whether user has scrolled the page down by 10px
   const scrollHandler = () => {
     window.pageYOffset > 10 ? setTop(false) : setTop(true);
+  };
+
+  const content = {
+    introduction: (
+        <div>
+          <h1 className="text-2xl font-bold mb-4">Introduction</h1>
+          <p>Welcome to the documentation! Here you'll find information about...</p>
+        </div>
+    ),
+    'getting-started': (
+        <div>
+          <h1 className="text-2xl font-bold mb-4">Getting Started</h1>
+          <p>To get started, first install the package by...</p>
+        </div>
+    ),
+    configuration: (
+        <div>
+          <h1 className="text-2xl font-bold mb-4">Configuration</h1>
+          <p>To configure the application, you need to...</p>
+        </div>
+    ),
+    usage: (
+        <div>
+          <h1 className="text-2xl font-bold mb-4">Usage</h1>
+          <p>Here's how you can use the application...</p>
+        </div>
+    ),
   };
 
   useEffect(() => {
@@ -30,12 +58,12 @@ export default function Header() {
           {/*  */}
           {/*</div>*/}
 
+
           {/* Desktop sign in links */}
           <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Home</a>
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Getting Started</a>
-            {/*<a href="/pages/documentation" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Documentation</a>*/}
-            <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Documentation</Link>
+              <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Documentation</Link>
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Features</a>
             <a href="#team-details" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">About</a>
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Community</a>
