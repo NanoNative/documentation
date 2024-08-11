@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import Logo from "./logo";
-import Layout from "@/app/documentation-nano/page";
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
