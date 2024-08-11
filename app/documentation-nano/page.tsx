@@ -1,7 +1,8 @@
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 
-export default function Documentation() {
+
+export default function DetailDocumentation() {
     return (
         <div>
             <Header />
@@ -13,3 +14,4 @@ export default function Documentation() {
         </div>
     );
 }
+

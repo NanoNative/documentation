@@ -35,7 +35,7 @@ export default function Header() {
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Home</a>
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Getting Started</a>
             {/*<a href="/pages/documentation" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Documentation</a>*/}
-            <Link href="/documentation" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Documentation</Link>
+            <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Documentation</Link>
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Features</a>
             <a href="#team-details" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">About</a>
             <a href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack mx-4">Community</a>
