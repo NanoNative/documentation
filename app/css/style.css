@@ -6,4 +6,6 @@
 @import "additional-styles/utility-patterns.css";
 @import "additional-styles/theme.css";
 
+@import "additional-styles/documentation.css";
+
 @import "tailwindcss/utilities";

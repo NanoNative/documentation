@@ -6,7 +6,6 @@ export default function Logo() {
   return (
     <Link href="/" className="inline-flex" aria-label="Cruip">
         <Image
-            className="bg-gray-900"
             src={NanoLogo}
             width={40}
             height={40}
