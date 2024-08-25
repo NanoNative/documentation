@@ -22,6 +22,8 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "prismjs": "^1.25.0",
+    "@types/prismjs": "^1.16.0",
     "@heroicons/react": "^2.1.5",
     "@tailwindcss/forms": "^0.5.7",
     "@types/aos": "^3.0.7",
