@@ -1,15 +1,8 @@
 import Image from "next/image";
-import PageIllustration from "@/components/page-illustration";
-import Avatar01 from "@/public/images/avatar-01.jpg";
-import Avatar02 from "@/public/images/avatar-02.jpg";
-import Avatar03 from "@/public/images/avatar-03.jpg";
-import Avatar04 from "@/public/images/avatar-04.jpg";
-import Avatar05 from "@/public/images/avatar-05.jpg";
-import Avatar06 from "@/public/images/avatar-06.jpg";
 import NanoBanner from "@/public/images/NanoBanner.svg";
 
 
-export default function HeroHome() {
+export default function NanoHome() {
   return (
     <section className="relative">
       {/*below component is for the background vertical bars of banner*/}
@@ -23,50 +16,6 @@ export default function HeroHome() {
               className="mb-6 border-y [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]"
               data-aos="zoom-y-out"
             >
-            {/*  <div className="-mx-0.5 flex justify-center -space-x-3">
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar01}
-                  width={32}
-                  height={32}
-                  alt="Avatar 01"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar02}
-                  width={32}
-                  height={32}
-                  alt="Avatar 01"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar03}
-                  width={32}
-                  height={32}
-                  alt="Avatar 02"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar04}
-                  width={32}
-                  height={32}
-                  alt="Avatar 03"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar05}
-                  width={32}
-                  height={32}
-                  alt="Avatar 04"
-                />
-                <Image
-                  className="box-content rounded-full border-2 border-gray-50"
-                  src={Avatar06}
-                  width={32}
-                  height={32}
-                  alt="Avatar 05"
-                />
-              </div>*/}
             </div>
             <div className="text-center">
               <div className="relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit]">
@@ -78,12 +27,6 @@ export default function HeroHome() {
                     alt="Nano Banner"
                 />
               </div>
-            {/*<h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1] md:text-6xl"*/}
-            {/*  data-aos="zoom-y-out"*/}
-            {/*  data-aos-delay={150}*/}
-            {/*>*/}
-            {/*  Welcome to Nano*/}
-            {/*</h1>*/}
 
             </div>
             <div className="mx-auto max-w-3xl">
@@ -114,22 +57,13 @@ export default function HeroHome() {
                   >
                     <span className="relative inline-flex items-center text-nanoBlack">
                       Learn more{" "}
-                      {/*<span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">*/}
-                      {/*  -&gt;*/}
-                      {/*</span>*/}
                     </span>
                   </a>
-                  {/*<a*/}
-                  {/*  className="btn w-full bg-white text-gray-800 shadow hover:bg-gray-50 sm:ml-4 sm:w-auto"*/}
-                  {/*  href="#0"*/}
-                  {/*>*/}
-                  {/*  Learn More*/}
-                  {/*</a>*/}
                 </div>
               </div>
             </div>
           </div>
-          {/* Hero image */}
+
           <div
             className="mx-auto max-w-3xl"
             data-aos="zoom-y-out"
@@ -156,21 +90,6 @@ export default function HeroHome() {
                   </div>
 
               <br/>
-              {/*<span className="animate-[code-3_10s_infinite]">*/}
-                {/*  --scope=@phanatic*/}
-                {/*</span>{" "}*/}
-                {/*<span className="animate-[code-4_10s_infinite]">*/}
-                {/*  Successfully logged-in.*/}
-                {/*</span>*/}
-                {/*<br />*/}
-                {/*<br />*/}
-                {/*<span className="animate-[code-5_10s_infinite] text-gray-200">*/}
-                {/*  npm publish*/}
-                {/*</span>*/}
-                {/*<br />*/}
-                {/*<span className="animate-[code-6_10s_infinite]">*/}
-                {/*  Package published.*/}
-                {/*</span>*/}
               </div>
             </div>
           </div>
