@@ -8,6 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-java';
 import documentation_subtopic_content from './documentationContent';
 
+
 const menuItems = [
     { name: 'Home', id: 'home', href: '/' },
     { name: 'Getting Started', id: 'getting-started', href: '/#nano_features' },
