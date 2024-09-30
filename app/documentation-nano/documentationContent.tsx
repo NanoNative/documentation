@@ -570,9 +570,376 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
 
         </div>
     ),
+    'components': (
+        <div id="components">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-2">Components</h1>
+            <p>All you need to know are few classes: Context, Events, Logger,
+                Schedulers, Services</p>
+        </div>
+    ),
+
+    'nano-context': (
+        <div id="components">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-4">Components</h1>
+            <p>The Context object is the main and overwhelming object that is passed around in Nano and accessible at
+                any time. It is used to interact with the core components: Logger, Events , Services, Schedulers, traces
+                and configuration. There is no need to create any custom config class as the Context contains all needed
+                information including type conversion.</p>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Examples</h1>
+            <h1 className="text-base font-bold mb-4">Access Configs</h1>
+            <ul className="list-disc pl-5">
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.get(Integer.class, "app_config_key")</span> -
+                    Get a configuration value as an
+                    Integer
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.getList(Integer.class, "app_config_key")</span> -
+                    Get a configuration value as a
+                    List of Integers
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.getMap(String.class, Integer.class, "app_config_key")</span> -
+                    Get a configuration
+                    value as a Map of Strings to Integers
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.traceId()</span> - Get the trace
+                    id of the current Context
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.logLevel()</span> - Get the log
+                    level of the current Context
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.logger.info(() -{'>'} "Hello {}", "World")</span> -
+                    Log a message with the Logger at
+                    the info level
+                </li>
+                <li className="mb-2"><span
+                    className="bg-gray-200 px-1 rounded">context.newContext(MyClass.class)</span> -
+                    Create a new Context with a Logger for the
+                    specific class
+                </li>
+            </ul>
+            <br/>
+            <h2 className="text-lg font-semibold">Events</h2><br/>
+            <ul className="list-disc pl-5 mb-4">
+                <li className="mb-2"><span
+                    className="bg-gray-200 px-1 rounded">context.registerChannelId("MyEventName")</span> - Register a
+                    new Event type and get the event id
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.sendEvent(channelId, MyPayloadObject)</span> -
+                    Send an Event with a payload
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.subscribeEvent(channelId, event -{'>'} System.out.println(event))</span> -
+                    Subscribe to an Event and execute the lambda when the event is triggered
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.broadcastEvent(channelId, MyPayloadObject)</span> -
+                    Broadcast an Event with a payload
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.eventNameOf(channelId)</span> -
+                    Get the name of an Event from the event id
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.channelIdOf(eventName)</span> -
+                    Get the id of an Event from the event name
+                </li>
+            </ul>
+            <br/>
+            <h2 className="text-lg font-semibold">Executors</h2><br/>
+            <ul className="list-disc pl-5 mb-4">
+                <li className="mb-2"><span
+                    className="bg-gray-200 px-1 rounded">context.run(() -{'>'} System.out.println("Scheduled"), 128, 256, MILLISECONDS)</span> -
+                    Run a lambda on a Scheduler with a 128ms delay and 256ms period
+                </li>
+                <li className="mb-2"><span
+                    className="bg-gray-200 px-1 rounded">context.run(() -{'>'} System.out.println("Async Task"))</span> -
+                    Run a lambda asynchronously
+                </li>
+                <li className="mb-2"><span
+                    className="bg-gray-200 px-1 rounded">context.runAwait(() -{'>'} System.out.println("Task 1"), () -{'>'} System.out.println("Task 2"))</span> -
+                    Run a lambda asynchronously and wait for them to finish
+                </li>
+            </ul>
+
+            <h2 className="text-lg font-semibold">Configuration</h2><br/>
+            <p className="mb-4">The configuration can be set in multiple ways, with the following order of
+                precedence:</p>
+            <table className="table-auto border-collapse border border-gray-300 mb-4 w-full">
+                <thead>
+                <tr className="bg-gray-200">
+                    <th className="border border-gray-300 px-4 py-2">Order</th>
+                    <th className="border border-gray-300 px-4 py-2">Type</th>
+                    <th className="border border-gray-300 px-4 py-2">Description & examples</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">0</td>
+                    <td className="border border-gray-300 px-4 py-2">Property Files</td>
+                    <td className="border border-gray-300 px-4 py-2">application.properties config files, automatically
+                        loaded from config, resources, and resources/config
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">1</td>
+                    <td className="border border-gray-300 px-4 py-2">Environment Variables</td>
+                    <td className="border border-gray-300 px-4 py-2">export app_profiles=production variables set in the
+                        environment
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">2</td>
+                    <td className="border border-gray-300 px-4 py-2">Command Line Arguments</td>
+                    <td className="border border-gray-300 px-4 py-2">-Dapp_profiles=production start parameters</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">3</td>
+                    <td className="border border-gray-300 px-4 py-2">Args</td>
+                    <td className="border border-gray-300 px-4 py-2">app_profiles=production arguments passed to the
+                        main method
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">4</td>
+                    <td className="border border-gray-300 px-4 py-2">Nano Start</td>
+                    <td className="border border-gray-300 px-4 py-2">new Nano(Map.of(CONFIG_LOG_LEVEL, TEST_LOG_LEVEL))
+                        passing configuration at nano start
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">5</td>
+                    <td className="border border-gray-300 px-4 py-2">Defaults</td>
+                    <td className="border border-gray-300 px-4 py-2">If no other configuration value is provided</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p className="mb-4">To access the configuration, use the <strong>Context</strong> object. Available
+                properties can be found by starting the application with the <span
+                    className="bg-gray-200 px-1 rounded">--help</span> flag.</p>
+
+            <br/>
+            <h2 className="text-lg font-semibold">Configuration Profiles</h2>
+            <p className="mb-4">
+                Profiles define different configurations for environments, set using the <span
+                className="bg-gray-200 px-1 rounded">app_profiles</span> property. It’s compatible with <span
+                className="bg-gray-200 px-1 rounded">spring.profiles.active</span>, <span
+                className="bg-gray-200 px-1 rounded">quarkus.profile</span>, and <span
+                className="bg-gray-200 px-1 rounded">micronaut.profiles</span>. The application will load the
+                corresponding <span
+                className="bg-gray-200 px-1 rounded">application-{'{profile}'}.properties</span> file if available.
+            </p>
+            <br/>
+            <h2 className="text-lg font-semibold">Configuration Format</h2>
+            <p className="mb-4">
+                Nano converts configuration keys to a common format: lowercase with underscores. For instance, <span
+                className="bg-gray-200 px-1 rounded">app.profiles</span> becomes <span
+                className="bg-gray-200 px-1 rounded">app_profiles</span>.
+            </p>
+
+            <br/>
+            <h2 className="text-lg font-semibold">Configuration Naming Patterns:</h2>
+            <ul className="list-disc pl-5 mb-4">
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">app_{'<key>'}</span> is reserved for
+                    Nano internal configurations
+                </li>
+                <li className="mb-2"><span
+                    className="bg-gray-200 px-1 rounded">app_service_{'<servicename>_<key>'}</span> is for Services
+                </li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">app_config_</span> is the prefix for
+                    custom configurations
+                </li>
+            </ul>
+            <br/>
+            <h2 className="text-lg font-semibold">Configuration Variables</h2>
+            <p className="mb-4">
+                Variables in configuration files are in the format <span
+                className="bg-gray-200 px-1 rounded">{'${variableName}'}</span> or <span
+                className="bg-gray-200 px-1 rounded">{'${variableName:fallback}'}</span>.
+            </p>
+
+            <h3 className="text-md font-medium mb-2">Example:</h3>
+            <p className="mb-4">
+                <span
+                    className="bg-gray-200 px-1 rounded">{'test.placeholder.value=${placeholder_value:fallback}'}</span>
+            </p>
+
+            <br/>
+            <h2 className="text-lg font-semibold">Default Configurations</h2><br/>
+            <table className="table-auto border-collapse border border-gray-300 mb-4 w-full">
+                <thead>
+                <tr className="bg-gray-200">
+                    <th className="border border-gray-300 px-4 py-2">Config Name</th>
+                    <th className="border border-gray-300 px-4 py-2">Type</th>
+                    <th className="border border-gray-300 px-4 py-2">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_env_prod</td>
+                    <td className="border border-gray-300 px-4 py-2">Boolean</td>
+                    <td className="border border-gray-300 px-4 py-2">Enable or disable behavior like exit codes, useful
+                        in prod environments, default = false
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_log_formatter</td>
+                    <td className="border border-gray-300 px-4 py-2">String</td>
+                    <td className="border border-gray-300 px-4 py-2">Log formatter: console or json</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_log_level</td>
+                    <td className="border border-gray-300 px-4 py-2">String</td>
+                    <td className="border border-gray-300 px-4 py-2">Log level for the application: INFO, DEBUG, FATAL,
+                        ERROR, WARN
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_log_queue_size</td>
+                    <td className="border border-gray-300 px-4 py-2">String</td>
+                    <td className="border border-gray-300 px-4 py-2">Log queue size. Full queue means logs wait to be
+                        executed (when using LogQueue Service)
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_oom_shutdown_threshold</td>
+                    <td className="border border-gray-300 px-4 py-2">String</td>
+                    <td className="border border-gray-300 px-4 py-2">Sets heap threshold percentage to send <span
+                        className="bg-gray-200 px-1 rounded">EVENT_APP_OOM</span>. Default = 98, disabled = -1
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_params_print</td>
+                    <td className="border border-gray-300 px-4 py-2">Boolean</td>
+                    <td className="border border-gray-300 px-4 py-2">Prints all configured values</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_profiles</td>
+                    <td className="border border-gray-300 px-4 py-2">String</td>
+                    <td className="border border-gray-300 px-4 py-2">Is config for application profiles</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_thread_pool_shutdown_timeout_ms</td>
+                    <td className="border border-gray-300 px-4 py-2">String</td>
+                    <td className="border border-gray-300 px-4 py-2">Timeout for thread pool shutdown in milliseconds
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">app_service_shutdown_parallel</td>
+                    <td className="border border-gray-300 px-4 py-2">Boolean</td>
+                    <td className="border border-gray-300 px-4 py-2">Enable or disable parallel service shutdown for
+                        faster shutdown
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">help</td>
+                    <td className="border border-gray-300 px-4 py-2">Boolean</td>
+                    <td className="border border-gray-300 px-4 py-2">Lists available config keys without starting the
+                        application
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <h2 className="text-lg font-semibold">Default Events</h2><br/>
+            <table className="table-auto border-collapse border border-gray-300 mb-4 w-full">
+                <thead>
+                <tr className="bg-gray-200">
+                    <th className="border border-gray-300 px-4 py-2">In/Out</th>
+                    <th className="border border-gray-300 px-4 py-2">Event</th>
+                    <th className="border border-gray-300 px-4 py-2">Payload</th>
+                    <th className="border border-gray-300 px-4 py-2">Response</th>
+                    <th className="border border-gray-300 px-4 py-2">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_START</td>
+                    <td className="border border-gray-300 px-4 py-2">Nano</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when the Application is started</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_SHUTDOWN</td>
+                    <td className="border border-gray-300 px-4 py-2">null</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when the Application shuts down, can be
+                        manually triggered
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_SERVICE_REGISTER</td>
+                    <td className="border border-gray-300 px-4 py-2">Service</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when a Service is started</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_SERVICE_UNREGISTER</td>
+                    <td className="border border-gray-300 px-4 py-2">Service</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when a Service is stopped</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_SCHEDULER_REGISTER</td>
+                    <td className="border border-gray-300 px-4 py-2">Scheduler</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when a Scheduler is started</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_SCHEDULER_UNREGISTER</td>
+                    <td className="border border-gray-300 px-4 py-2">Scheduler</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when a Scheduler is stopped</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_UNHANDLED</td>
+                    <td className="border border-gray-300 px-4 py-2">Unhandled, HttpObject,...</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when an unhandled error occurs within the
+                        context
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_OOM</td>
+                    <td className="border border-gray-300 px-4 py-2">Double</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Triggered when the Application reaches out of
+                        memory. If unhandled, the App will shutdown (see config <span
+                            className="bg-gray-200 px-1 rounded">app_oom_shutdown_threshold</span>)
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔲</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_APP_HEARTBEAT</td>
+                    <td className="border border-gray-300 px-4 py-2">Nano</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Sent every 256ms</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">🔳</td>
+                    <td className="border border-gray-300 px-4 py-2">EVENT_CONFIG_CHANGE</td>
+                    <td className="border border-gray-300 px-4 py-2">TypeMap</td>
+                    <td className="border border-gray-300 px-4 py-2">N/A</td>
+                    <td className="border border-gray-300 px-4 py-2">Used to change configs on the fly</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    ),
+
     'maven-example': (
         <div id="maven-example">
-            <br/><br/>
+        <br/><br/>
             <h1 className="text-base font-bold mb-4">Maven example</h1>
             <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
                 <code className="language-java">

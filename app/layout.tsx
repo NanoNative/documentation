@@ -14,7 +14,7 @@ export const metadata = {
     description: 'Documentation for the Nano framework, covering core concepts, mechanics, and getting started guides.',
     keywords: "NanoNative, microservices, lightweight, Java, GraalVM, Project Loom, virtual threads, native executables",
     robots: "index, follow",
-    viewport: "width=device-width, initial-scale=1.0",
+    // viewport: "width=device-width, initial-scale=1.0",
     authors: [
         { "name": "NanoNative Team" },
         { "name": "Yuna Braska" }
@@ -32,6 +32,11 @@ export const metadata = {
         description: "NanoNative enables effortless microservice development with modern Java, optimized for native executables.",
         images: NanoBanner,  // Replace with your actual image path
     }
+};
+
+export const viewport = {
+    width: 'device-width',
+    initialScale: 1.0,
 };
 
 export default function RootLayout({

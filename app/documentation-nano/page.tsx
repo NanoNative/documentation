@@ -52,6 +52,17 @@ const topics = [
         ],
     },
     {
+        name: 'Components',
+        id: 'components',
+        subtopics: [
+            { name: 'Context', id: 'nano-context' },
+            { name: 'Events', id: 'nano-events' },
+            { name: 'Logger', id: 'nano-logger' },
+            { name: 'Schedulers', id: 'nano-schedulers' },
+            { name: 'Services', id: 'nano-services' },
+        ],
+    },
+    {
         name: 'Getting Started',
         id: 'getting-started',
         subtopics: [
@@ -65,7 +76,7 @@ const topics = [
         subtopics: [],
     },
     {
-        name: 'Benefits of Nano',
+        name: 'Benefits',
         id: 'benefits-of-nano',
         subtopics: [
             { name: 'Contributing', id: 'contributing' },
