@@ -1,5 +1,13 @@
 import React from 'react';
 
+import Image from "next/image";
+import nano_context from "@/public/images/conponents/context.jpg";
+import nano_events from "@/public/images/conponents/events.jpg";
+import nano_logger from "@/public/images/conponents/logger.jpg";
+import nano_schedulers from "@/public/images/conponents/schedulers.jpg";
+import nano_services from "@/public/images/conponents/services.jpg";
+
+
 const documentation_subtopic_content: { [key: string]: JSX.Element } = {
     introduction: (
         <div id="introduction">
@@ -10,8 +18,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 fluent,
                 chaining, plain, modern Java with a nano footprint. Nano is also designed to be fully compilable with
                 &nbsp;<a className="nano-link" href="https://www.graalvm.org/" target="_blank"
-                         rel="noopener noreferrer">GraalVM</a>
-                to create native executables. To enhance efficiency and performance, Nano utilizes non-blocking virtual
+                         rel="noopener noreferrer">GraalVM</a> to create native executables. To enhance efficiency and performance, Nano utilizes non-blocking virtual
                 threads from
                 &nbsp;<a className="nano-link" href="https://jdk.java.net/loom/" target="_blank"
                          rel="noopener noreferrer">Project Loom</a>.
@@ -574,19 +581,40 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
         <div id="components">
             <br/><br/>
             <h1 className="text-2xl font-bold mb-2">Components</h1>
-            <p>All you need to know are few classes: Context, Events, Logger,
-                Schedulers, Services</p>
+            <p>All you need to know are few classes: <a className="nano-link" href="#nano-context">Context</a>, <a className="nano-link" href="#nano-events">Events</a>, <a
+                className="nano-link" href="#nano-logger">Logger</a>, <a className="nano-link" href="#nano-schedulers">Schedulers</a>, Services</p>
         </div>
     ),
 
     'nano-context': (
-        <div id="components">
+        <div id="nano-context">
             <br/><br/>
-            <h1 className="text-2xl font-bold mb-4">Components</h1>
-            <p>The Context object is the main and overwhelming object that is passed around in Nano and accessible at
-                any time. It is used to interact with the core components: Logger, Events , Services, Schedulers, traces
-                and configuration. There is no need to create any custom config class as the Context contains all needed
+            <h1 className="text-2xl font-bold mb-4">Context</h1>
+            <p>The <a className="nano-link" href="#nano-context">Context</a> object is the main and overwhelming object
+                that is passed around in Nano and accessible at
+                any time. It is used to interact with the core components: <a className="nano-link"
+                                                                              href="#nano-logger">Logger</a>, <a
+                    className="nano-link" href="#nano-events">Events</a> , <a className="nano-link"
+                                                                              href="#nano-services">Services</a>, <a
+                    className="nano-link" href="#nano-schedulers">Schedulers</a>,
+                traces and <a className="nano-link" href="#nano-configuration">configuration</a>. There
+                is no need to create any custom config class as the <a className="nano-link"
+                                                                       href="#nano-context">Context</a> contains all
+                needed
                 information including type conversion.</p>
+
+
+            <div
+                className="relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit]">
+                <Image
+                    className="rounded-lg bg-gray-900"
+                    src={nano_context}
+                    width={1200}
+                    height={500}
+                    alt="Nano Context"
+                />
+            </div>
+
 
             <br/>
             <h1 className="text-base font-bold mb-4">Examples</h1>
@@ -605,18 +633,18 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                     value as a Map of Strings to Integers
                 </li>
                 <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.traceId()</span> - Get the trace
-                    id of the current Context
+                    id of the current <a className="nano-link" href="#nano-context">Context</a>
                 </li>
                 <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.logLevel()</span> - Get the log
-                    level of the current Context
+                    level of the current <a className="nano-link" href="#nano-context">Context</a>
                 </li>
                 <li className="mb-2"><span className="bg-gray-200 px-1 rounded">context.logger.info(() -{'>'} "Hello {}", "World")</span> -
-                    Log a message with the Logger at
+                    Log a message with the <a className="nano-link" href="#nano-logger">Logger</a> at
                     the info level
                 </li>
                 <li className="mb-2"><span
                     className="bg-gray-200 px-1 rounded">context.newContext(MyClass.class)</span> -
-                    Create a new Context with a Logger for the
+                    Create a new <a className="nano-link" href="#nano-context">Context</a> with a <a className="nano-link" href="#nano-logger">Logger</a> for the
                     specific class
                 </li>
             </ul>
@@ -660,7 +688,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 </li>
             </ul>
 
-            <h2 className="text-lg font-semibold">Configuration</h2><br/>
+            <h2 id="nano-configuration" className="text-lg font-semibold">Configuration</h2><br/>
             <p className="mb-4">The configuration can be set in multiple ways, with the following order of
                 precedence:</p>
             <table className="table-auto border-collapse border border-gray-300 mb-4 w-full">
@@ -713,7 +741,9 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 </tbody>
             </table>
 
-            <p className="mb-4">To access the configuration, use the <strong>Context</strong> object. Available
+            <p className="mb-4">To access the configuration, use the <a className="nano-link"
+                                                                        href="#nano-context">Context</a> object.
+                Available
                 properties can be found by starting the application with the <span
                     className="bg-gray-200 px-1 rounded">--help</span> flag.</p>
 
@@ -841,7 +871,8 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             </table>
 
             <br/>
-            <h2 className="text-lg font-semibold">Default Events</h2><br/>
+            <h2 className="text-lg font-semibold">Default <a className="nano-link" href="#nano-events">Events</a></h2>
+            <br/>
             <table className="table-auto border-collapse border border-gray-300 mb-4 w-full">
                 <thead>
                 <tr className="bg-gray-200">
@@ -937,9 +968,335 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
         </div>
     ),
 
+    'nano-events': (
+        <div id="nano-events">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-4">Events</h1>
+            <p>Events are the backbone of communication within the Nano Framework, enabling decoupled interaction
+                between
+                different parts of an application. They are a core API concept for using Services. See Event.java.</p>
+
+            <br/>
+            <div
+                className="relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit]">
+                <Image
+                    className="rounded-lg bg-gray-900"
+                    src={nano_events}
+                    width={1200}
+                    height={500}
+                    alt="Nano Events"
+                />
+            </div>
+            <br/><br/>
+            <h1 className="text-base font-bold mb-4">ChannelIds</h1>
+            <p>ChannelIds are globally unique IDs to identify the correct channel to send events into. They can be
+                registered
+                once with <code><span
+                    className="bg-gray-200 px-1 rounded">ChannelIdRegister.registerChannelId("MY_EVENT_NAME")</span></code>.
+                See <a className="nano-link"
+                       href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/EventChannelRegister.java"
+                       target="_blank" rel="noopener noreferrer">EventChannelRegister.java</a> and <a
+                    className="nano-link"
+                    href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/model/EventChannel.java"
+                    target="_blank" rel="noopener noreferrer">DefaultEventChannel</a>.
+            </p>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Sending Events</h1>
+            <ul className="list-disc pl-5">
+                <li>
+                    <b>Synchronous (SingleCast)</b><br/>
+                    <code><span
+                        className="bg-gray-200 px-1 rounded">context.sendEvent(channelId, MyPayloadObject)</span></code><br/>
+                    <code><span className="bg-gray-200 px-1 rounded">sendEventReturn()</span></code> will return the
+                    Event
+                    instead of the <a className="nano-link" href="#nano-context">Context</a>.
+                </li>
+                <li>
+                <b>Asynchronous (SingleCast)</b><br/>
+                    <code><span className="bg-gray-200 px-1 rounded">context.sendEvent(channelId, MyPayloadObject, response -{'>'} myListener)</span></code><br/>
+                    <code><span className="bg-gray-200 px-1 rounded">sendEventReturn()</span></code> will return the
+                    Event
+                    instead of the <a className="nano-link" href="#nano-context">Context</a>.
+                </li>
+                <li>
+                <b>Synchronous (BroadCast)</b><br/>
+                    <code><span
+                        className="bg-gray-200 px-1 rounded">context.broadcastEvent(channelId, MyPayloadObject)</span></code><br/>
+                    <span className="bg-gray-200 px-1 rounded">broadcastEventReturn()</span> will return the Event
+                    instead of the <a className="nano-link" href="#nano-context">Context</a>.<br/>
+                    The broadcast will not stop at the first responding listeners.
+                </li>
+                <li>
+                    <b>Asynchronous (BroadCast)</b><br/>
+                    <code><span className="bg-gray-200 px-1 rounded">context.broadcastEvent(channelId, MyPayloadObject, response {'>'} myListener)</span></code><br/>
+                    <code><span className="bg-gray-200 px-1 rounded">broadcastEventReturn()</span></code> will return
+                    the Event
+                    instead of the <a className="nano-link" href="#nano-context">Context</a>.<br/>
+                    The broadcast will not stop at the first responding listeners.
+                </li>
+            </ul>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Listening to Events</h1>
+            <p>Listeners can be registered with <code>context.subscribeEvent(channelId, event -{'>'}
+                System.out.println(event))</code>. Services don’t need to subscribe or unsubscribe from <a className="nano-link" href="#nano-events">Events</a>,
+                as they
+                receive them through the built-in <code>onEvent</code> method.</p>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Default Events</h1>
+            <table className="table-auto border-collapse border border-gray-400">
+                <thead>
+                <tr>
+                    <th className="border border-gray-400 px-4 py-2">In</th>
+                    <th className="border border-gray-400 px-4 py-2">Out</th>
+                    <th className="border border-gray-400 px-4 py-2">Event</th>
+                    <th className="border border-gray-400 px-4 py-2">Payload</th>
+                    <th className="border border-gray-400 px-4 py-2">Response</th>
+                    <th className="border border-gray-400 px-4 py-2">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_START</td>
+                    <td className="border border-gray-400 px-4 py-2">Nano</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when the Application starts</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_SHUTDOWN</td>
+                    <td className="border border-gray-400 px-4 py-2">null</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when the Application shuts down</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_SERVICE_REGISTER</td>
+                    <td className="border border-gray-400 px-4 py-2">Service</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when a Service starts</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_SERVICE_UNREGISTER</td>
+                    <td className="border border-gray-400 px-4 py-2">Service</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when a Service stops</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_SCHEDULER_REGISTER</td>
+                    <td className="border border-gray-400 px-4 py-2">Scheduler</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when a Scheduler starts</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_SCHEDULER_UNREGISTER</td>
+                    <td className="border border-gray-400 px-4 py-2">Scheduler</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when a Scheduler stops</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_UNHANDLED</td>
+                    <td className="border border-gray-400 px-4 py-2">Unhandled, HttpObject...</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when an unhandled error occurs in the
+                        context
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_OOM</td>
+                    <td className="border border-gray-400 px-4 py-2">Double</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Triggered when the Application reaches out of
+                        memory. If not handled, the app shuts down. See config <code>app_oom_shutdown_threshold</code>.
+                    </td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔲</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_APP_HEARTBEAT</td>
+                    <td className="border border-gray-400 px-4 py-2">Nano</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Sent every 256ms</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-400 px-4 py-2">🔳</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">EVENT_CONFIG_CHANGE</td>
+                    <td className="border border-gray-400 px-4 py-2">TypeMap</td>
+                    <td className="border border-gray-400 px-4 py-2">N/A</td>
+                    <td className="border border-gray-400 px-4 py-2">Used to change configs on the fly</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    ),
+    'nano-logger': (
+        <div id="nano-logger">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-4">Logger</h1>
+            <p>The <a className="nano-link" href="#nano-logger">Logger</a> is a simple wrapper around the built-in Java
+                logger that comes with predefined log formats
+                (console and json). <strong>Note:</strong> the logger is still under construction.</p>
+
+            <br/>
+            <div
+                className="relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit]">
+                <Image
+                    className="rounded-lg bg-gray-900"
+                    src={nano_logger}
+                    width={1200}
+                    height={500}
+                    alt="Nano Logger"
+                />
+            </div>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Placeholder</h1>
+            <p>The logger supports placeholders in the message string. The placeholders are replaced by the arguments
+                passed to the logger.</p>
+            <ul className="list-disc pl-5">
+                <li><code>{}</code> and <code>%s</code> are replaced by the argument at the same index.</li>
+                <li><code>{0}</code> is replaced by the argument at the specified index.</li>
+            </ul>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Log Formatter</h1>
+            <p>The <a className="nano-link" href="#nano-logger">Logger</a> supports two default log formatters:</p>
+            <ul className="list-disc pl-5">
+            <li>
+                    <b>console</b> - Logs the message to the console.<br/>
+                    <b>Example:</b>
+                    <span className="bg-gray-200 px-1 rounded">context.logger(() -{'>'} "Hello {}", "World")
+                </span>
+                    <br/>
+                    <b>Output:</b> <span className="bg-gray-200 px-1 rounded">[2024-11-11 11:11:11.111] [DEBUG] [Nano] - Hello World</span>
+                </li>
+                <li>
+                   <span
+                       className="bg-gray-200 px-1 rounded"><b>json</b></span>- Logs the message as JSON to the console.<br/>
+                    <b>Example:</b> <span className="bg-gray-200 px-1 rounded">context.logger(() -{'>'} "Hello {}", "World")</span><br/>
+                    <b>Output:</b>
+                    <pre className="bg-gray-100 p-2 rounded">
+                {"{"}<br/>
+                        &nbsp;&nbsp;"Hello": "World",<br/>
+                        &nbsp;&nbsp;"level": "DEBUG",<br/>
+                        &nbsp;&nbsp;"logger": "Nano",<br/>
+                        &nbsp;&nbsp;"message": "Hello World",<br/>
+                        &nbsp;&nbsp;"timestamp": "2024-11-11 11:11:11.111"<br/>
+                        {"}"}
+            </pre>
+                </li>
+            </ul>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Custom Log Formatter</h1>
+            <p>Custom log formatters can be registered by using <code>LogFormatRegister.registerLogFormatter(Name,
+                Formatter)</code>
+                where <code>Formatter</code> is a Java <code>java.util.logging.Formatter</code>.</p>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Log Queue</h1>
+            <p>The <a className="nano-link" href="#nano-logger">Logger</a> supports a <b>LogQueue</b>, which can be used
+                to prevent the main thread from being blocked
+                when
+                logging. Nano comes with a default LogQueue Service that can be added like any other services:</p>
+            <pre className="bg-gray-100 p-2 rounded">
+        <code>new Nano(new LogQueue())</code>
+    </pre>
+        </div>
+    ),
+    'nano-schedulers': (
+        <div id="nano-schedulers">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-4">Schedulers</h1>
+            <p> Schedulers are managed functions that run in the
+                background, allowing for tasks to be executed either
+                after a delay or periodically.</p>
+
+            <div
+                className="relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit]">
+                <Image
+                    className="rounded-lg bg-gray-900"
+                    src={nano_schedulers}
+                    width={1200}
+                    height={500}
+                    alt="Nano Scheduler"
+                />
+            </div>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Examples</h1>
+            <ul className="list-disc pl-5">
+                <li>
+                    <b>Run once with a delay (128ms)</b><br/>
+                    <span className="bg-gray-200 px-1 rounded">context.run(() -{'>'} System.out.println("Scheduled"), 128, MILLISECONDS)</span>
+                </li>
+                <li>
+                    <b>Run periodically (every 256ms) with an initial delay (128ms)</b><br/>
+                    <span className="bg-gray-200 px-1 rounded">context.run(() -{'>'} System.out.println("Scheduled"), 128, 256, MILLISECONDS)</span>
+                </li>
+            </ul>
+        </div>
+
+    ),
+    'nano-services': (
+        <div id="nano-services">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-4">Services</h1>
+            <p>Services are extensions for Nano, acting as independently managed programs that run in the background.
+                They are typically designed to be accessed by <a className="nano-link" href="#nano-events">Events</a>.
+                Nano provides default Services such as
+                <span className="bg-gray-200 px-1 rounded">HttpService</span>, <span
+                    className="bg-gray-200 px-1 rounded">MetricService</span>,
+                and <span className="bg-gray-200 px-1 rounded">LogQueue</span>.</p>
+
+            <br/>
+            <div
+                className="relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit]">
+                <Image
+                    className="rounded-lg bg-gray-900"
+                    src={nano_services}
+                    width={1200}
+                    height={500}
+                    alt="Nano Service"
+                />
+            </div>
+            <br/>
+            <h1 className="text-base font-bold mb-4">Start Services</h1>
+            <ul className="list-disc pl-5">
+                <li>
+                    <b>Start Services with Nano Startup:</b><br/>
+                    <span className="bg-gray-200 px-1 rounded">new Nano(new HttpService(), new MetricService(), new LogQueue())</span><br/>
+                    <span>Services will start automatically when Nano starts.</span>
+                </li>
+                <li>
+                    <b>Start a Service Manually:</b><br/>
+                    <span className="bg-gray-200 px-1 rounded">context.run(new HttpService())</span><br/>
+                    <span>This will start the <code>HttpService</code> manually.</span>
+                </li>
+            </ul>
+        </div>
+
+    ),
     'maven-example': (
         <div id="maven-example">
-        <br/><br/>
+            <br/><br/>
             <h1 className="text-base font-bold mb-4">Maven example</h1>
             <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
                 <code className="language-java">
@@ -964,7 +1321,28 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                     </code>
                   </pre>
 
+            <br/>
+            <p className="px-1"> <b>Simple Nano example</b> with <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/httpservice/README.md" target="_blank" rel="noopener noreferrer">HttpService</a> (a default service)</p><br/>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`public static void main(final String[] args) {
+    // Start Nano with HttpService
+    final Nano app = new Nano(args, new HttpService());
+
+    // listen to /hello
+    app.subscribeEvent(EVENT_HTTP_REQUEST, event -> event.payloadOpt(HttpObject.class)
+        .filter(HttpObject::isMethodGet)
+        .filter(request -> request.pathMatch("/hello"))
+        .ifPresent(request -> request.response().body(Map.of("Hello", System.getProperty("user.name"))).respond(event)));
+
+    // Override error handling for HTTP requests
+    app.subscribeEvent(EVENT_APP_UNHANDLED, event -> event.payloadOpt(HttpObject.class).ifPresent(request ->
+        request.response().body("Internal Server Error [" + event.error().getMessage() + "]").statusCode(500).respond(event)));
+}`}
+                    </code>
+                  </pre>
         </div>
+
     ),
     'build-nano': (
         <div id="build-nano">

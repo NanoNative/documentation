@@ -8,7 +8,6 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-java';
 import documentation_subtopic_content from './documentationContent';
 
-
 const menuItems = [
     { name: 'Home', id: 'home', href: '/' },
     { name: 'Getting Started', id: 'getting-started', href: '/#nano_features' },
@@ -89,13 +88,19 @@ const topics = [
 
 export default function Layout() {
     const [activeMenu, setActiveMenu] = useState(menuItems[0].id);
-    const [activeTopic, setActiveTopic] = useState<string | null>(topics[0].id);
+    const [activeTopic, setActiveTopic] = useState<string | null>(null);
     const [visibleSubtopics, setVisibleSubtopics] = useState<string | null>(null);
     const [activeSubtopic, setActiveSubtopic] = useState<string | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isTopicsOpen, setIsTopicsOpen] = useState(false);
 
     const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+    useEffect(() => {
+        // Set the initial active topic and visible subtopics when the component mounts
+        setActiveTopic(topics[0].id);
+        setVisibleSubtopics(topics[0].id); // Show subtopics of the first topic
+    }, []);
 
     useEffect(() => {
         if (activeSubtopic && contentRefs.current[activeSubtopic]) {
