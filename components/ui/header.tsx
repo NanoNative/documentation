@@ -16,22 +16,22 @@ export default function Header() {
 
                     {/* Desktop menu */}
                     <nav className="hidden md:flex space-x-8">
-                        <Link href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href="/" className="text-sm font-semibold leading-6 text-nanoBlack">
                             Home
                         </Link>
-                        <Link href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack">
                             Getting Started
                         </Link>
                         <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack">
                             Documentation
                         </Link>
-                        <Link href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href="/#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack">
                             Features
                         </Link>
-                        <Link href="#team-details" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href="/about" className="text-sm font-semibold leading-6 text-nanoBlack">
                             About
                         </Link>
-                        <Link href="#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href="/community" className="text-sm font-semibold leading-6 text-nanoBlack">
                             Community
                         </Link>
                     </nav>

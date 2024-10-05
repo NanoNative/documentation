@@ -1,4 +1,5 @@
-"use client"; // Mark this as a Client Component
+"use client";
+
 import React, { useState, useRef, useEffect } from 'react';
 import Footer from "@/components/ui/footer";
 import { Bars3Icon, XMarkIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
@@ -10,11 +11,11 @@ import documentation_subtopic_content from './documentationContent';
 
 const menuItems = [
     { name: 'Home', id: 'home', href: '/' },
-    { name: 'Getting Started', id: 'getting-started', href: '/#nano_features' },
+    { name: 'Getting Started', id: 'getting-started', href: '/documentation-nano' },
     { name: 'Documentation', id: 'documentation', href: '/documentation-nano' },
     { name: 'Features', id: 'features', href: '/#nano_features' },
     { name: 'About', id: 'about', href: '/#team-details' },
-    { name: 'Community', id: 'community', href: '/' },
+    { name: 'Community', id: 'community', href: '/community' },
 ];
 
 const topics = [
