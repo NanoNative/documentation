@@ -144,11 +144,11 @@ export default function Layout() {
     }, [activeSubtopic, activeTopic]);
 
     const handleSubTopicItemNavClick = (topic: string, subTopic: string) => {
-        window.location.href = `/documentation/documentation-nano#${topic}#${subTopic}`;
+        window.location.href = `/documentation-nano#${topic}#${subTopic}`;
     };
 
     const handleTopicItemNavClick = (topic: string) => {
-        window.location.href = `/documentation/documentation-nano#${topic}`;
+        window.location.href = `/documentation-nano#${topic}`;
     };
 
     return (
