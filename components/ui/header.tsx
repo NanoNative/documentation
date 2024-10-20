@@ -19,7 +19,7 @@ export default function Header() {
                         <Link href="/" className="text-sm font-semibold leading-6 text-nanoBlack">
                             Home
                         </Link>
-                        <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href="/documentation-nano#getting-started" className="text-sm font-semibold leading-6 text-nanoBlack">
                             Getting Started
                         </Link>
                         <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack">
