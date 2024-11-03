@@ -18,7 +18,7 @@ const menuItems = [
     {
         name: "Getting Started",
         id: "getting-started",
-        href: "/documentation-nano",
+        href: "/documentation-nano#getting-started",
     },
     { name: "Documentation", id: "documentation", href: "/documentation-nano" },
     { name: "Features", id: "features", href: "/#nano_features" },
@@ -143,6 +143,7 @@ export default function Layout() {
         Prism.highlightAll();
     }, [activeSubtopic, activeTopic]);
 
+    // TO DO: update the documentation-nano to get it dynamically
     const handleSubTopicItemNavClick = (topic: string, subTopic: string) => {
         window.location.href = `/documentation-nano#${topic}#${subTopic}`;
     };
