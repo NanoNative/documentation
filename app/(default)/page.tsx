@@ -1,4 +1,5 @@
 import NanoBanner from "@/public/images/NanoBanner.svg";
+import { externalLinks } from "@/constants/links";
 
 export const metadata = {
     title: "NanoNative - Simplify Microservices with Lightweight Java Solutions",
@@ -12,7 +13,7 @@ export const metadata = {
     openGraph: {
         title: "NanoNative - Simplify Microservices with Lightweight Java Solutions",
         description: "NanoNative enables effortless microservice development with modern Java, optimized for native executables.",
-        url: "https://nanonative.org/",
+        url: externalLinks.site,
         type: "website",
         images: NanoBanner,
     },

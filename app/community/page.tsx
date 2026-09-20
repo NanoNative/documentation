@@ -2,6 +2,7 @@
 import React from "react";
 import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
+import { externalLinks } from "@/constants/links";
 
 export default function Community() {
     return (
@@ -44,7 +45,7 @@ export default function Community() {
                                             and share your knowledge.
                                         </p>
                                         <a
-                                            href="https://join.slack.com/t/nano-native/shared_invite/zt-2o1nshr0i-9R76D8vNLo4DT52hi7YU8w"
+                                            href={externalLinks.slack}
                                             target="_blank"
                                             className="inline-block bg-nanoBlue text-white px-6 py-2 rounded-full transition-colors hover:bg-nanoPink">
                                             Join Slack
@@ -65,7 +66,7 @@ export default function Community() {
                                             contributors to help improve the library.
                                         </p>
                                         <a
-                                            href="https://github.com/NanoNative/nano"
+                                            href={externalLinks.nanoRepo}
                                             target="_blank"
                                             className="inline-block bg-nanoBlue text-white px-6 py-2 rounded-full transition-colors hover:bg-nanoPink">
                                             Visit GitHub
@@ -86,7 +87,7 @@ export default function Community() {
                                             announcements from the Nano team.
                                         </p>
                                         <a
-                                            href="https://x.com/YunaMorgenstern"
+                                            href={externalLinks.xYuna}
                                             target="_blank"
                                             className="inline-block bg-nanoBlue text-white px-6 py-2 rounded-full transition-colors hover:bg-nanoPink">
                                             Follow Us

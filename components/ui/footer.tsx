@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./logo";
+import { externalLinks, siteLinks } from "@/constants/links";
 
 export default function Footer({ border = false }: { border?: boolean }) {
   return (
@@ -26,7 +27,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#nano_features"
+                  href={siteLinks.features}
                 >
                   Features
                 </Link>
@@ -34,7 +35,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="/pricing-plans"
+                  href={siteLinks.pricing}
                 >
                   Pricing & Plans
                 </Link>
@@ -42,7 +43,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#team-details"
+                  href={siteLinks.team}
                 >
                   Our Team
                 </Link>
@@ -57,7 +58,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="/about"
+                  href={siteLinks.about}
                 >
                   About us
                 </Link>
@@ -65,9 +66,19 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                  href={siteLinks.community}
                 >
-                  Blog
+                  Community
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-gray-600 transition hover:text-gray-900"
+                  href={externalLinks.nanoIssues}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Report a vulnerability
                 </Link>
               </li>
             </ul>
@@ -80,25 +91,9 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                  href={siteLinks.community}
                 >
                   Community
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Terms of service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Report a vulnerability
                 </Link>
               </li>
             </ul>
@@ -111,7 +106,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   <li>
                       <Link
                           className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                          href="https://x.com/YunaMorgenstern"
+                          href={externalLinks.xYuna}
                           target="_blank" rel="noopener noreferrer"
                           aria-label="Twitter"
                       >
@@ -128,7 +123,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   <li>
                       <Link
                           className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                          href="https://www.linkedin.com/in/yuna-morgenstern-6662a5145/"
+                          href={externalLinks.linkedinYuna}
                           target="_blank" rel="noopener noreferrer"
                           aria-label="LinkedIn"
                       >
@@ -145,7 +140,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   <li>
                       <Link
                           className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                          href="https://github.com/NanoNative/nano" target="_blank"
+                          href={externalLinks.nanoRepo} target="_blank"
                           rel="noreferrer"
                           aria-label="Github"
                       >

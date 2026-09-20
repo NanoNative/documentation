@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "./logo";
+import { siteLinks } from "@/constants/links";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -16,22 +17,22 @@ export default function Header() {
 
                     {/* Desktop menu */}
                     <nav className="hidden md:flex space-x-8">
-                        <Link href="/" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href={siteLinks.home} className="text-sm font-semibold leading-6 text-nanoBlack">
                             Home
                         </Link>
-                        <Link href="/documentation-nano#getting-started" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href={siteLinks.gettingStarted} className="text-sm font-semibold leading-6 text-nanoBlack">
                             Getting Started
                         </Link>
-                        <Link href="/documentation-nano" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href={siteLinks.docs} className="text-sm font-semibold leading-6 text-nanoBlack">
                             Documentation
                         </Link>
-                        <Link href="/#nano_features" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href={siteLinks.features} className="text-sm font-semibold leading-6 text-nanoBlack">
                             Features
                         </Link>
-                        <Link href="/about" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href={siteLinks.about} className="text-sm font-semibold leading-6 text-nanoBlack">
                             About
                         </Link>
-                        <Link href="/community" className="text-sm font-semibold leading-6 text-nanoBlack">
+                        <Link href={siteLinks.community} className="text-sm font-semibold leading-6 text-nanoBlack">
                             Community
                         </Link>
                     </nav>
@@ -60,22 +61,22 @@ export default function Header() {
                     {menuOpen && (
                         <nav className="absolute top-14 left-0 right-0 z-50 bg-white shadow-lg md:hidden">
                             <div className="space-y-1 px-2 pt-2 pb-3">
-                                <Link href="#nano_features" className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
+                                <Link href={siteLinks.home} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     Home
                                 </Link>
-                                <Link href="#nano_features" className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
+                                <Link href={siteLinks.gettingStarted} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     Getting Started
                                 </Link>
-                                <Link href="/documentation-nano" className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
+                                <Link href={siteLinks.docs} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     Documentation
                                 </Link>
-                                <Link href="#nano_features" className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
+                                <Link href={siteLinks.features} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     Features
                                 </Link>
-                                <Link href="#team-details" className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
+                                <Link href={siteLinks.about} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     About
                                 </Link>
-                                <Link href="#nano_features" className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
+                                <Link href={siteLinks.community} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     Community
                                 </Link>
                             </div>

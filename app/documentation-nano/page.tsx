@@ -12,18 +12,19 @@ import Logo from "@/components/ui/logo";
 import Prism from "prismjs";
 import "prismjs/components/prism-java";
 import documentation_subtopic_content from "./documentationContent";
+import { siteLinks } from "@/constants/links";
 
 const menuItems = [
-    { name: "Home", id: "home", href: "/" },
+    { name: "Home", id: "home", href: siteLinks.home },
     {
         name: "Getting Started",
         id: "getting-started",
-        href: "/documentation-nano#getting-started",
+        href: siteLinks.gettingStarted,
     },
-    { name: "Documentation", id: "documentation", href: "/documentation-nano" },
-    { name: "Features", id: "features", href: "/#nano_features" },
-    { name: "About", id: "about", href: "/#team-details" },
-    { name: "Community", id: "community", href: "/community" },
+    { name: "Documentation", id: "documentation", href: siteLinks.docs },
+    { name: "Features", id: "features", href: siteLinks.features },
+    { name: "About", id: "about", href: siteLinks.about },
+    { name: "Community", id: "community", href: siteLinks.community },
 ];
 
 const topics = [
@@ -38,7 +39,7 @@ const topics = [
         subtopics: [
             { name: "Concept", id: "concept" },
             { name: "Modern and Fluent Design 🚀", id: "modern-and-fluent-design" },
-            { name: "No External Dependencies 🔒", id: "no-external-dependencies" },
+            { name: "Minimal Dependencies 🔒", id: "no-external-dependencies" },
             {
                 name: "Minimal Resource Consumption 🌱",
                 id: "minimal-resource-consumption",
@@ -113,43 +114,61 @@ export default function Layout() {
     const [isTopicsOpen, setIsTopicsOpen] = useState(false);
     const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
-    useEffect(() => {
-        // Set the initial active topic and visible subtopics when the component mounts
+    const applyHashNavigation = () => {
         const splittedUrl = window.location.hash.substring(1).split("#");
         if (splittedUrl?.length > 0 && splittedUrl[0] !== "") {
             const topic = topics.find((u) => u.id === splittedUrl[0]);
-            topic && setActiveTopic(topic.id);
-            topic && setVisibleSubtopics(topic.id);
-            if (splittedUrl.length >= 2) {
-                const subTopic = topic?.subtopics?.find((u) => u.id === splittedUrl[1]);
-                subTopic && setActiveSubtopic(subTopic.id);
-                // console.log("Topic and sub topic", { topic, subTopic });
+            if (topic) {
+                const subTopic = topic.subtopics.find((u) => u.id === splittedUrl[1]);
+                setActiveTopic(topic.id);
+                setVisibleSubtopics(topic.id);
+                setActiveSubtopic(subTopic?.id ?? null);
             }
         } else {
             setActiveTopic(topics[0].id);
             setVisibleSubtopics(topics[0].id); // Show subtopics of the first topic
+            setActiveSubtopic(null);
         }
+    };
+
+    useEffect(() => {
+        // Set the initial active topic and update it when navigating between docs hashes.
+        applyHashNavigation();
+        window.addEventListener("hashchange", applyHashNavigation);
+        return () => window.removeEventListener("hashchange", applyHashNavigation);
     }, []);
 
     useEffect(() => {
-        if (activeSubtopic && contentRefs.current[activeSubtopic]) {
-            contentRefs.current[activeSubtopic]!.scrollIntoView({
+        const target = activeSubtopic ?? activeTopic;
+        if (target && contentRefs.current[target]) {
+            contentRefs.current[target]!.scrollIntoView({
                 behavior: "smooth",
             });
         }
-    }, [activeSubtopic]);
+    }, [activeSubtopic, activeTopic]);
 
     useEffect(() => {
         Prism.highlightAll();
     }, [activeSubtopic, activeTopic]);
 
-    // TO DO: update the documentation-nano to get it dynamically
+    const handleDocumentationNavClick = (topic: string, subTopic?: string) => {
+        setActiveTopic(topic);
+        setVisibleSubtopics(topic);
+        setActiveSubtopic(subTopic ?? null);
+        setIsTopicsOpen(false);
+        window.history.pushState(
+            null,
+            "",
+            `#${topic}${subTopic ? `#${subTopic}` : ""}`
+        );
+    };
+
     const handleSubTopicItemNavClick = (topic: string, subTopic: string) => {
-        window.location.href = `/documentation-nano#${topic}#${subTopic}`;
+        handleDocumentationNavClick(topic, subTopic);
     };
 
     const handleTopicItemNavClick = (topic: string) => {
-        window.location.href = `/documentation-nano#${topic}`;
+        handleDocumentationNavClick(topic);
     };
 
     return (
@@ -179,6 +198,9 @@ export default function Layout() {
                                             onClick={() => {
                                                 setActiveMenu(item.id);
                                                 setIsSidebarOpen(false);
+                                                if (item.id === "getting-started") {
+                                                    handleTopicItemNavClick("getting-started");
+                                                }
                                             }}
                                         >
                                             {item.name}
@@ -204,6 +226,7 @@ export default function Layout() {
                 <div className="flex flex-1 overflow-hidden">
                     <main className="flex-1 bg-gray-100 p-8 overflow-auto">
                         <div className="relative">
+                            <span id="getting-started" className="sr-only" aria-hidden="true" />
                             <div className="bg-white p-6 rounded-lg shadow-md">
                                 {(activeTopic &&
                                     documentation_subtopic_content[activeTopic] && (
@@ -267,14 +290,6 @@ export default function Layout() {
                                                 activeTopic === topic.id ? "bg-gray-200" : ""
                                             }`}
                                             onClick={() => {
-                                                if (visibleSubtopics === topic.id) {
-                                                    setVisibleSubtopics(null);
-                                                } else {
-                                                    setVisibleSubtopics(topic.id);
-                                                }
-                                                setActiveTopic(topic.id);
-                                                setActiveSubtopic(null);
-                                                setIsTopicsOpen(false);
                                                 handleTopicItemNavClick(topic.id);
                                             }}
                                         >
@@ -291,8 +306,6 @@ export default function Layout() {
                                                                     : ""
                                                             }`}
                                                             onClick={() => {
-                                                                setActiveSubtopic(subtopic.id);
-                                                                setIsTopicsOpen(false);
                                                                 handleSubTopicItemNavClick(
                                                                     topic.id,
                                                                     subtopic.id

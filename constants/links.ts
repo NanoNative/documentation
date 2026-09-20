@@ -1,0 +1,28 @@
+export const siteLinks = {
+    home: "/",
+    docs: "/documentation-nano",
+    gettingStarted: "/documentation-nano#getting-started",
+    features: "/#nano_features",
+    about: "/about",
+    team: "/about#team-details",
+    community: "/community",
+    pricing: "/pricing-plans",
+} as const;
+
+export const externalLinks = {
+    site: "https://nanonative.org/",
+    nanoRepo: "https://github.com/NanoNative/nano",
+    nanoReadme: "https://github.com/NanoNative/nano/blob/main/README.md",
+    nanoIssues: "https://github.com/NanoNative/nano/issues/new/choose",
+    nanoOrg: "https://github.com/NanoNative",
+    slack: "https://join.slack.com/t/nano-native/shared_invite/zt-2o1nshr0i-9R76D8vNLo4DT52hi7YU8w",
+    xYuna: "https://x.com/YunaMorgenstern",
+    xKazim: "https://x.com/Ali_Kazim1101",
+    linkedinYuna: "https://www.linkedin.com/in/yuna-morgenstern-6662a5145/",
+    linkedinKazim: "https://www.linkedin.com/in/kazim-ali-52924015b/",
+    githubYuna: "https://github.com/YunaBraska",
+    githubKazim: "https://github.com/kazim1101",
+    websiteAbhiroop: "https://ab.basuabhi92.workers.dev/",
+    linkedinAbhiroop: "https://linkedin.com/in/basuabhiroop/",
+    githubAbhiroop: "https://github.com/absketches/",
+} as const;
