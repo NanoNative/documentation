@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata = {
+    metadataBase: new URL("https://nanonative.org"),
     title: 'Nano Documentation',
     description: 'Documentation for the Nano framework, covering core concepts, mechanics, and getting started guides.',
     keywords: "NanoNative, microservices, lightweight, Java, GraalVM, Project Loom, virtual threads, native executables",

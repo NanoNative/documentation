@@ -5,7 +5,6 @@ export const metadata = {
     description: "NanoNative helps developers easily create lightweight microservices using modern Java, GraalVM compatibility, and non-blocking virtual threads.",
     keywords: "NanoNative, microservices, lightweight, Java, GraalVM, Project Loom, virtual threads, native executables",
     robots: "index, follow",
-    viewport: "width=device-width, initial-scale=1.0",
     authors: [
         { "name": "NanoNative Team" },
         { "name": "Yuna Braska" }

@@ -47,3 +47,4 @@ __pycache__
 
 lib/
 node_modules
+.next/
