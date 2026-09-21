@@ -94,6 +94,16 @@ const topics = [
         subtopics: [],
     },
     {
+        name: "Observability",
+        id: "observability",
+        subtopics: [
+            { name: "Developer Console 🖥️", id: "developer-console" },
+            { name: "Setup 🧩", id: "developer-console-setup" },
+            { name: "Configuration ⚙️", id: "developer-console-configuration" },
+            { name: "Endpoints 🔌", id: "developer-console-endpoints" },
+        ],
+    },
+    {
         name: "Benefits",
         id: "benefits-of-nano",
         subtopics: [

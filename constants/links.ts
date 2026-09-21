@@ -14,6 +14,7 @@ export const externalLinks = {
     nanoRepo: "https://github.com/NanoNative/nano",
     nanoReadme: "https://github.com/NanoNative/nano/blob/main/README.md",
     nanoIssues: "https://github.com/NanoNative/nano/issues/new/choose",
+    devConsoleRepo: "https://github.com/NanoNative/dev-console",
     nanoOrg: "https://github.com/NanoNative",
     slack: "https://join.slack.com/t/nano-native/shared_invite/zt-2o1nshr0i-9R76D8vNLo4DT52hi7YU8w",
     xYuna: "https://x.com/YunaMorgenstern",

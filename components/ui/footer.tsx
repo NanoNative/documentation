@@ -64,6 +64,18 @@ export default function Footer({ border = false }: { border?: boolean }) {
                 </Link>
               </li>
               <li>
+                <span className="text-gray-600">
+                  Blog
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* 4th block */}
+          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+            <h3 className="text-sm font-medium">Resources</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
                   href={siteLinks.community}
@@ -79,21 +91,6 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   rel="noopener noreferrer"
                 >
                   Report a vulnerability
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* 4th block */}
-          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Resources</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href={siteLinks.community}
-                >
-                  Community
                 </Link>
               </li>
             </ul>

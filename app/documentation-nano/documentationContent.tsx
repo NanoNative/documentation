@@ -9,6 +9,7 @@ import nano_services from "@/public/images/conponents/services.jpg";
 import { externalLinks } from "@/constants/links";
 
 const NANO_VERSION = "2026.01.0120644";
+const DEV_CONSOLE_VERSION = "2025.12.3611243";
 
 const documentation_subtopic_content: { [key: string]: JSX.Element } = {
     introduction: (
@@ -73,10 +74,10 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <p>Nano provides the basic building blocks for event-driven Java services: a <span
                 className="bg-gray-200 px-1 rounded">Context</span>, typed <span
                 className="bg-gray-200 px-1 rounded">Events</span>, managed <span
-                className="bg-gray-200 px-1 rounded">Schedulers</span>, and pluggable <span
+                className="bg-gray-200 px-1 rounded">Schedulers</span> and pluggable <span
                 className="bg-gray-200 px-1 rounded">Services</span>. Business logic is commonly written as static
                 listeners that react to events, while services connect to external systems such as HTTP, metrics,
-                logging, files, queues, or databases. Objects are less needed thanks to the underlying &nbsp;<a className="nano-link"
+                logging, files, queues or databases. Objects are less needed thanks to the underlying &nbsp;<a className="nano-link"
                                                                           href="https://github.com/YunaBraska/type-map"
                                                                           target="_blank"
                                                                           rel="noopener noreferrer">TypeMap</a>. Nano
@@ -89,7 +90,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <br/><br/>
             <p>Nano is a minimalist standalone library for plain, modern Java. It is a tool, not a framework:
                 it avoids annotation-heavy object hierarchies and keeps control in explicit event handlers,
-                services, configuration, and typed data conversion.</p>
+                services, configuration and typed data conversion.</p>
         </div>
     ),
     'modern-and-fluent-design': (
@@ -174,7 +175,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <br/><br/>
             <h1 className="text-2xl font-bold mb-4">Modular Design 🧩</h1>
             <p>Nano’s <span className="bg-gray-200 px-1 rounded">Event</span> system enables decoupling of functions,
-                plugin creation (<span className="bg-gray-200 px-1 rounded">Services</span>), and function interception.
+                plugin creation (<span className="bg-gray-200 px-1 rounded">Services</span>) and function interception.
                 For example, you can globally control and respond to every error that occurs, similar to a global <span
                     className="bg-gray-200 px-1 rounded">Controller Advice</span>.
                 With that its also easy to change configurations on the fly. This modular design allows services, such
@@ -340,7 +341,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <h1 className="text-2xl font-bold mb-4">Channels:</h1>
             <p>Channels identify where
                 <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/events/README.md"
-                   target="_blank" rel="noopener noreferrer"> Events</a> are sent, subscribed to, and replied from.
+                   target="_blank" rel="noopener noreferrer"> Events</a> are sent, subscribed to and replied from.
                 Current channel behavior is part of the event model. See <a className="nano-link"
                     href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/model/Channel.java"
                     target="_blank" rel="noopener noreferrer">Channel.java</a>.</p>
@@ -697,7 +698,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                     <td className="border border-gray-300 px-4 py-2">0</td>
                     <td className="border border-gray-300 px-4 py-2">Property Files</td>
                     <td className="border border-gray-300 px-4 py-2">application.properties config files, automatically
-                        loaded from config, resources, and resources/config
+                        loaded from config, resources and resources/config
                     </td>
                 </tr>
                 <tr>
@@ -746,7 +747,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 Profiles define different configurations for environments, set using the <span
                 className="bg-gray-200 px-1 rounded">app_profiles</span> property. It’s compatible with <span
                 className="bg-gray-200 px-1 rounded">spring.profiles.active</span>, <span
-                className="bg-gray-200 px-1 rounded">quarkus.profile</span>, and <span
+                className="bg-gray-200 px-1 rounded">quarkus.profile</span> and <span
                 className="bg-gray-200 px-1 rounded">micronaut.profiles</span>. The application will load the
                 corresponding <span
                 className="bg-gray-200 px-1 rounded">application-{'{profile}'}.properties</span> file if available.
@@ -982,7 +983,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             </div>
             <br/><br/>
             <h1 className="text-base font-bold mb-4">ChannelIds</h1>
-            <p>Channels identify where events are sent, subscribed to, and replied from. Current channel and event
+            <p>Channels identify where events are sent, subscribed to and replied from. Current channel and event
                 behavior is implemented through the event model classes. See <a className="nano-link"
                        href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/model/Channel.java"
                        target="_blank" rel="noopener noreferrer">Channel.java</a> and <a
@@ -1361,6 +1362,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                                 <id>build-native</id>
                                 <phase>package</phase>
                                 <goals>
+                                    <goal>generateResourceConfig</goal>
                                     <goal>compile-no-fork</goal>
                                 </goals>
                             </execution>
@@ -1388,12 +1390,170 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                   </pre>
         </div>
     ),
+    'observability': (
+        <div id="observability">
+            <h1 className="text-2xl font-bold mb-4">Observability</h1>
+            <p>Nano applications can expose runtime data through services. The first tool in this area is
+                the <a className="nano-link" href={externalLinks.devConsoleRepo} target="_blank"
+                       rel="noopener noreferrer">Nano Developer Console</a>, a service for inspecting events, logs,
+                runtime metrics, configuration and service state from a local HTTP UI.</p>
+        </div>
+    ),
+    'developer-console': (
+        <div id="developer-console">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-4">Developer Console</h1>
+            <p>The Developer Console is a Nano service that provides a local HTTP UI and JSON endpoints for a running
+                Nano application. It is intended for development and test environments by default.</p>
+            <ul className="list-disc pl-5">
+                <li className="mb-2">Live event stream with pause and export.</li>
+                <li className="mb-2">Live logs with pause and export.</li>
+                <li className="mb-2">System snapshot including PID, heap usage, CPU usage, threads and services.</li>
+                <li className="mb-2">Runtime configuration updates through the Config panel.</li>
+                <li className="mb-2">Service start and stop controls when service indexing is configured.</li>
+            </ul>
+        </div>
+    ),
+    'developer-console-setup': (
+        <div id="developer-console-setup">
+            <br/>
+            <h1 className="text-2xl font-bold mb-4">Setup</h1>
+            <p>Add the Developer Console dependency to your Nano application.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    <dependency>
+        <groupId>org.nanonative</groupId>
+        <artifactId>devconsole</artifactId>
+        <version>${DEV_CONSOLE_VERSION}</version>
+    </dependency>`}
+                    </code>
+                  </pre>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Start with Nano</h1>
+            <p>Add <span className="bg-gray-200 px-1 rounded">DevConsoleService</span> alongside your Nano services.
+                The UI is mounted under <span className="bg-gray-200 px-1 rounded">/dev-console/ui</span> by default.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    Nano nano = new Nano(Map.of(
+        CONFIG_SERVICE_HTTP_PORT, "8080"
+    ), new DevConsoleService(), new HttpServer(), new MyAppService());`}
+                    </code>
+                  </pre>
+            <div className="my-4 rounded-lg border border-blue-200 bg-blue-50 p-4">
+                <p className="font-semibold text-gray-900">Open the Developer Console after the application starts: <span
+                    className="bg-gray-200 px-1 rounded">http://localhost:8080/dev-console/ui</span></p>
+            </div>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Service indexing</h1>
+            <p>To let the Developer Console discover Nano services that can be started from the UI, add the service
+                indexing plugin to the application POM.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    <plugin>
+        <groupId>io.github.absketches</groupId>
+        <artifactId>codegen-concrete-classes-maven-plugin</artifactId>
+        <version>2025.11.3280300</version>
+        <executions>
+            <execution>
+                <id>nano-service-index</id>
+                <phase>process-classes</phase>
+                <goals>
+                    <goal>generate</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>`}
+                    </code>
+                  </pre>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">GraalVM resources</h1>
+            <p>For native image builds, include the Developer Console service descriptor as a native image resource.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    <plugin>
+        <groupId>org.graalvm.buildtools</groupId>
+        <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+            <resourceIncludedPatterns>
+                <pattern>META-INF/io/github/absketches/plugin/services.properties</pattern>
+            </resourceIncludedPatterns>
+        </configuration>
+        <executions>
+            <execution>
+                <id>build-native</id>
+                <phase>package</phase>
+                <goals>
+                    <goal>generateResourceConfig</goal>
+                    <goal>compile-no-fork</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>`}
+                    </code>
+                  </pre>
+        </div>
+    ),
+    'developer-console-configuration': (
+        <div id="developer-console-configuration">
+            <br/>
+            <h1 className="text-2xl font-bold mb-4">Configuration</h1>
+            <table className="table-auto border-collapse border border-gray-300 mb-4 w-full">
+                <thead>
+                <tr className="bg-gray-200">
+                    <th className="border border-gray-300 px-4 py-2">Key</th>
+                    <th className="border border-gray-300 px-4 py-2">Default</th>
+                    <th className="border border-gray-300 px-4 py-2">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_max_events</td>
+                    <td className="border border-gray-300 px-4 py-2">1000</td>
+                    <td className="border border-gray-300 px-4 py-2">Max events retained in memory.</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_max_logs</td>
+                    <td className="border border-gray-300 px-4 py-2">1000</td>
+                    <td className="border border-gray-300 px-4 py-2">Max logs retained in memory.</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_url</td>
+                    <td className="border border-gray-300 px-4 py-2">/ui</td>
+                    <td className="border border-gray-300 px-4 py-2">UI mounted under /dev-console.</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_svc_file</td>
+                    <td className="border border-gray-300 px-4 py-2">services.properties</td>
+                    <td className="border border-gray-300 px-4 py-2">Generated service index file name.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    ),
+    'developer-console-endpoints': (
+        <div id="developer-console-endpoints">
+            <br/>
+            <h1 className="text-2xl font-bold mb-4">Endpoints</h1>
+            <p>The Developer Console is mounted under <span className="bg-gray-200 px-1 rounded">/dev-console</span>.</p>
+            <ul className="list-disc pl-5">
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">GET /dev-console/system-info</span> - system and JVM snapshot.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">GET /dev-console/events</span> - recent events.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">GET /dev-console/logs</span> - recent logs.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">PATCH /dev-console/config</span> - update runtime config.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">PATCH /dev-console/service/{'{serviceName}'}</span> - start a service.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">DELETE /dev-console/service/{'{serviceName}'}</span> - stop a service.</li>
+            </ul>
+        </div>
+    ),
     'benefits-of-nano': (
         <div id="benefits-of-nano">
             <h1 className="text-2xl font-bold mb-4">✨ Benefits of Nano</h1>
             <ul className="list-disc pl-5">
                 <li className="mb-2">🧩 Modular Design: Nano's architecture is modular, making it easy to understand,
-                    extend, and maintain.
+                    extend and maintain.
                 </li>
                 <li className="mb-2">🧵 Concurrency Management: Efficiently handle asynchronous tasks using advanced
                     thread management.
@@ -1402,10 +1562,10 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                     between different parts of your application.
                 </li>
                 <li className="mb-2">⚙️ Flexible Configuration: Configure your application using environment variables,
-                    system properties, or command-line arguments.
+                    system properties or command-line arguments.
                 </li>
-                <li className="mb-2">📊 Robust Logging and Error Handling: Integrated logging and comprehensive error
-                    handling mechanisms for reliable operation.
+                <li className="mb-2">📊 Logging and Error Handling: Integrated logging and error handling for reliable
+                    operation.
                 </li>
                 <li className="mb-2">🚀 Scalable and Performant: Designed with scalability and performance in mind to
                     handle high-concurrency scenarios.

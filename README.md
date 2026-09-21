@@ -1,4 +1,4 @@
-![Project Logo](public/images/nanoApp.svg)
+![Project Logo](public/images/NanoApp.svg)
 
 
 npm run dev 
