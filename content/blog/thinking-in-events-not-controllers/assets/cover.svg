@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="70" y="64" width="1060" height="502" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="96" y="94" width="1008" height="52" rx="8" fill="#0F172A"/>
+  <circle cx="126" cy="120" r="7" fill="#FF69B4"/>
+  <circle cx="150" cy="120" r="7" fill="#A6C1EE"/>
+  <circle cx="174" cy="120" r="7" fill="#5799EA"/>
+  <text x="216" y="127" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">EVENT_HTTP_REQUEST</text>
+  <rect x="120" y="196" width="250" height="92" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="146" y="231" fill="#E5E7EB" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">GET /orders</text>
+  <text x="146" y="259" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">payload: HttpObject</text>
+  <rect x="474" y="174" width="252" height="136" rx="10" fill="#162033" stroke="#5799EA"/>
+  <text x="508" y="218" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">subscribeEvent()</text>
+  <text x="508" y="250" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">filter(method)</text>
+  <text x="508" y="276" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">filter(path)</text>
+  <rect x="830" y="196" width="250" height="92" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="856" y="231" fill="#E5E7EB" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">respond(event)</text>
+  <text x="856" y="259" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">body + status</text>
+  <path d="M370 242H454" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M446 228L464 242L446 256" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M726 242H810" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M802 228L820 242L802 256" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="214" y="374" width="772" height="96" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="246" y="412" fill="#FF69B4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">request event</text>
+  <text x="446" y="412" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">error event</text>
+  <text x="626" y="412" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">config event</text>
+  <text x="820" y="412" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">service reply</text>
+  <text x="246" y="448" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="22">One runtime vocabulary for application flow</text>
+  <text x="96" y="526" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700">Thinking in events, not controllers</text>
+</svg>

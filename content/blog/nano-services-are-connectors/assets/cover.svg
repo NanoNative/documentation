@@ -1,0 +1,26 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="86" y="72" width="1028" height="486" rx="14" fill="transparent" stroke="#263244"/>
+  <text x="118" y="132" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Nano service boundary</text>
+  <text x="118" y="166" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="18">services connect the runtime to explicit capabilities</text>
+  <rect x="472" y="228" width="256" height="150" rx="12" fill="#F8FAFC"/>
+  <text x="550" y="295" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Nano</text>
+  <text x="518" y="330" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Context + Events</text>
+  <rect x="126" y="226" width="218" height="74" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="154" y="272" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">HttpServer</text>
+  <rect x="126" y="352" width="218" height="74" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="154" y="398" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">FileWatcher</text>
+  <rect x="856" y="226" width="218" height="74" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="884" y="272" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">MetricService</text>
+  <rect x="856" y="352" width="218" height="74" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="884" y="398" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">LogService</text>
+  <path d="M344 263H454" stroke="#A6C1EE" stroke-width="5" stroke-linecap="round"/>
+  <path d="M444 249L462 263L444 277" stroke="#A6C1EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M344 389H454" stroke="#FF69B4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M444 375L462 389L444 403" stroke="#FF69B4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M738 263H848" stroke="#A6C1EE" stroke-width="5" stroke-linecap="round"/>
+  <path d="M840 249L858 263L840 277" stroke="#A6C1EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M738 389H848" stroke="#FF69B4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M840 375L858 389L840 403" stroke="#FF69B4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="252" y="482" width="696" height="38" rx="6" fill="#0F172A" stroke="#334155"/>
+  <text x="276" y="507" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">new Nano(new HttpServer(), new MetricService(), new LogService())</text>
+</svg>

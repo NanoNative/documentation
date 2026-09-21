@@ -29,6 +29,9 @@ export default function Header() {
                         <Link href={siteLinks.features} className="text-sm font-semibold leading-6 text-nanoBlack">
                             Features
                         </Link>
+                        <Link href={siteLinks.blog} className="text-sm font-semibold leading-6 text-nanoBlack">
+                            Blog
+                        </Link>
                         <Link href={siteLinks.about} className="text-sm font-semibold leading-6 text-nanoBlack">
                             About
                         </Link>
@@ -72,6 +75,9 @@ export default function Header() {
                                 </Link>
                                 <Link href={siteLinks.features} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     Features
+                                </Link>
+                                <Link href={siteLinks.blog} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
+                                    Blog
                                 </Link>
                                 <Link href={siteLinks.about} className="block px-3 py-2 rounded-md text-base font-medium text-nanoBlack hover:bg-gray-50">
                                     About

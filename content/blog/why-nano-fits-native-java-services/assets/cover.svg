@@ -1,0 +1,27 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="74" y="64" width="1052" height="502" rx="14" fill="transparent" stroke="#263244"/>
+  <text x="112" y="128" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Native Java service surface</text>
+  <text x="112" y="160" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="18">explicit services make native-image work easier to reason about</text>
+  <rect x="112" y="216" width="330" height="232" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="140" y="254" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">app runtime</text>
+  <text x="140" y="296" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">HttpServer</text>
+  <text x="140" y="328" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">MetricService</text>
+  <text x="140" y="360" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">LogService</text>
+  <text x="140" y="392" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">application classes</text>
+  <rect x="520" y="216" width="230" height="232" rx="10" fill="#162033" stroke="#5799EA"/>
+  <text x="552" y="254" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">native-image</text>
+  <text x="552" y="302" fill="#A6C1EE" font-family="Inter, Arial, sans-serif" font-size="20">closed world</text>
+  <text x="552" y="336" fill="#A6C1EE" font-family="Inter, Arial, sans-serif" font-size="20">resources</text>
+  <text x="552" y="370" fill="#A6C1EE" font-family="Inter, Arial, sans-serif" font-size="20">metadata</text>
+  <rect x="828" y="216" width="260" height="232" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="856" y="254" fill="#FF69B4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">output</text>
+  <text x="856" y="296" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">fast startup</text>
+  <text x="856" y="328" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">small container</text>
+  <text x="856" y="360" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">measured behavior</text>
+  <path d="M442 332H502" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M494 318L512 332L494 346" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M750 332H810" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M802 318L820 332L802 346" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="112" y="490" width="976" height="38" rx="6" fill="#0F172A" stroke="#334155"/>
+  <text x="138" y="515" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">resources and metadata stay close to the services that need them</text>
+</svg>

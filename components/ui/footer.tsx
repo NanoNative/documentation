@@ -64,9 +64,12 @@ export default function Footer({ border = false }: { border?: boolean }) {
                 </Link>
               </li>
               <li>
-                <span className="text-gray-600">
+                <Link
+                  className="text-gray-600 transition hover:text-gray-900"
+                  href={siteLinks.blog}
+                >
                   Blog
-                </span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -157,7 +160,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
       </div>
 
         {/* Big text */}
-        <div className="relative -mt-16 h-60 w-full" aria-hidden="true">
+        <div className="pointer-events-none relative -mt-16 h-60 w-full" aria-hidden="true">
             <div
                 className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[348px] font-bold leading-none before:bg-gradient-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Nano'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Nano'] after:[text-shadow:0_1px_0_white]"></div>
             {/* Glow */}

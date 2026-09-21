@@ -5,6 +5,7 @@ export const siteLinks = {
     features: "/#nano_features",
     about: "/about",
     team: "/about#team-details",
+    blog: "/blog",
     community: "/community",
     pricing: "/pricing-plans",
 } as const;
