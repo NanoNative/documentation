@@ -1,8 +1,7 @@
 import "./css/style.css";
 
 import { Inter } from "next/font/google";
-import NanoBanner from "@/public/images/NanoBanner.svg";
-import { externalLinks } from "@/constants/links";
+import { externalLinks, socialImages } from "@/constants/links";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,13 +24,13 @@ export const metadata = {
         description: "NanoNative enables effortless microservice development with modern Java, optimized for native executables.",
         url: externalLinks.site,
         type: "website",
-        images: NanoBanner,
+        images: [socialImages.openGraph],
     },
     twitter: {
         card: "summary_large_image",
         title: "NanoNative - Simplify Microservices with Lightweight Java Solutions",
         description: "NanoNative enables effortless microservice development with modern Java, optimized for native executables.",
-        images: NanoBanner,
+        images: [socialImages.twitter],
     }
 };
 

@@ -38,3 +38,18 @@ export const externalLinks = {
     linkedinAbhiroop: "https://linkedin.com/in/basuabhiroop/",
     githubAbhiroop: "https://github.com/absketches/",
 } as const;
+
+export const socialImages = {
+    openGraph: {
+        url: "/images/NanoOpenGraph@1200x630.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NanoNative",
+    },
+    twitter: {
+        url: "/images/NanoTwitterCard@1024x512.png",
+        width: 1024,
+        height: 512,
+        alt: "NanoNative",
+    },
+} as const;

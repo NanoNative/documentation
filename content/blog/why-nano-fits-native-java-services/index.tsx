@@ -85,14 +85,12 @@ static final Channel<OrderLookupRequest, OrderLookupResult> EVENT_ORDER_LOOKUP =
         OrderLookupResult.class
     );
 
-context.subscribeEvent(EVENT_ORDER_LOOKUP, (event, request) ->
-    event.respond(new OrderLookupResult(request.orderId(), "OPEN"))
-);
-
-final OrderLookupResult result = context
-    .newEvent(EVENT_ORDER_LOOKUP, () -> new OrderLookupRequest("order-42"))
-    .send()
-    .response();`}</code>
+@Override
+public void onEvent(final Event<?, ?> event) {
+    event.channel(EVENT_ORDER_LOOKUP).ifPresent(lookupEvent -> lookupEvent.payloadOpt()
+        .map(request -> new OrderLookupResult(request.orderId(), "OPEN"))
+        .ifPresent(lookupEvent::respond));
+}`}</code>
             </pre>
 
             <p>

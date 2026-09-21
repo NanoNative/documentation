@@ -3,8 +3,7 @@ import Link from "next/link";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import { blogPosts } from "@/content/blog/posts";
-import { externalLinks, siteLinks } from "@/constants/links";
-import NanoBanner from "@/public/images/NanoBanner.svg";
+import { externalLinks, siteLinks, socialImages } from "@/constants/links";
 
 export const metadata = {
     title: "NanoNative Blog",
@@ -14,13 +13,13 @@ export const metadata = {
         description: "Technical articles, release notes and engineering notes from NanoNative.",
         url: `${externalLinks.site}${siteLinks.blog.slice(1)}`,
         type: "website",
-        images: NanoBanner,
+        images: [socialImages.openGraph],
     },
     twitter: {
         card: "summary_large_image",
         title: "NanoNative Blog",
         description: "Technical articles, release notes and engineering notes from NanoNative.",
-        images: NanoBanner,
+        images: [socialImages.twitter],
     },
 };
 

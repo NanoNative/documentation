@@ -60,27 +60,22 @@ const post: BlogPost = {
             <p>
                 A connector (service) should know how to talk to a capability. It should not slowly absorb unrelated domain
                 behavior. For example, an HTTP-facing service can translate an incoming request into an application event.
-                A domain class can decide whether that request is valid. In real code, app-specific events like <code>EVENT_ORDER_ACCEPTED</code>
+                A domain class can decide whether that request is valid. Inside a <code>Service</code> subclass, the event
+                handling method can stay narrow. In real code, app-specific events like <code>EVENT_ORDER_ACCEPTED</code>
                 should be registered as typed channel constants.
             </p>
 
             <pre>
-                <code>{`public final class OrderApiService implements Service {
-    private final OrderPolicy policy;
-
-    public OrderApiService(final OrderPolicy policy) {
-        this.policy = policy;
-    }
-
-    @Override
-    public void start(final Context context) {
-        context.subscribeEvent(EVENT_HTTP_REQUEST, event -> event.payloadOpt()
-            .filter(HttpObject::isMethodPost)
-            .filter(request -> request.pathMatch("/orders"))
-            .map(this::readOrder)
-            .map(policy::validate)
-            .ifPresent(order -> context.newEvent(EVENT_ORDER_ACCEPTED, () -> order).send()));
-    }
+                <code>{`@Override
+public void onEvent(final Event<?, ?> event) {
+    event.channel(EVENT_HTTP_REQUEST).ifPresent(httpEvent -> httpEvent.payloadOpt()
+        .filter(HttpObject::isMethodPost)
+        .filter(request -> request.pathMatch("/orders"))
+        .map(this::readOrder)
+        .map(policy::validate)
+        .ifPresent(order -> context()
+            .newEvent(EVENT_ORDER_ACCEPTED, () -> order)
+            .send()));
 }`}</code>
             </pre>
 
@@ -92,17 +87,20 @@ const post: BlogPost = {
             <h2>HTTP Is Just One Event Source</h2>
             <p>
                 When <code>HttpServer</code> receives a request, Nano publishes it on the HTTP request channel. A service
-                can subscribe to that channel, inspect the request and decide whether it owns the path. The request does
+                can inspect that channel, read the request and decide whether it owns the path. The request does
                 not need to be converted into a controller method before the application can handle it.
             </p>
 
             <pre>
-                <code>{`context.subscribeEvent(EVENT_HTTP_REQUEST, event -> event.payloadOpt()
-    .filter(HttpObject::isMethodGet)
-    .filter(request -> request.pathMatch("/orders"))
-    .ifPresent(request -> request.createResponse()
-        .body(orderView.loadOpenOrders())
-        .respond(event)));`}</code>
+                <code>{`@Override
+public void onEvent(final Event<?, ?> event) {
+    event.channel(EVENT_HTTP_REQUEST).ifPresent(httpEvent -> httpEvent.payloadOpt()
+        .filter(HttpObject::isMethodGet)
+        .filter(request -> request.pathMatch("/orders"))
+        .ifPresent(request -> request.createResponse()
+            .body(Map.of("orders", orderView.loadOpenOrders()))
+            .respond(httpEvent)));
+}`}</code>
             </pre>
 
             <p>
@@ -117,12 +115,13 @@ const post: BlogPost = {
             </p>
 
             <pre>
-                <code>{`public final class AuditService implements Service {
-    @Override
-    public void start(final Context context) {
-        context.subscribeEvent(EVENT_ORDER_CREATED, (event, order) ->
-            context.newEvent(EVENT_AUDIT_WRITE, () -> order).send());
-    }
+                <code>{`@Override
+public void onEvent(final Event<?, ?> event) {
+    event.channel(EVENT_ORDER_CREATED)
+        .map(Event::payloadAck)
+        .ifPresent(order -> context()
+            .newEvent(EVENT_AUDIT_WRITE, () -> order)
+            .send());
 }`}</code>
             </pre>
 
@@ -143,19 +142,14 @@ const post: BlogPost = {
             </p>
 
             <pre>
-                <code>{`public final class OrderLookupService implements Service {
-    private final OrderRepository repository;
-
-    public OrderLookupService(final OrderRepository repository) {
-        this.repository = repository;
-    }
-
-    @Override
-    public void start(final Context context) {
-        context.subscribeEvent(EVENT_ORDER_LOOKUP_REQUESTED, event -> event.payloadOpt()
-            .map(repository::findById)
-            .ifPresent(order -> context.newEvent(EVENT_ORDER_LOOKUP_COMPLETED, () -> order).send()));
-    }
+                <code>{`@Override
+public void onEvent(final Event<?, ?> event) {
+    event.channel(EVENT_ORDER_LOOKUP_REQUESTED)
+        .map(Event::payloadAck)
+        .map(repository::findById)
+        .ifPresent(order -> context()
+            .newEvent(EVENT_ORDER_LOOKUP_COMPLETED, () -> order)
+            .send());
 }`}</code>
             </pre>
 
@@ -207,19 +201,14 @@ const post: BlogPost = {
             </p>
 
             <pre>
-                <code>{`public final class OrderService implements Service {
-    private final OrderPolicy policy;
-
-    public OrderService(final OrderPolicy policy) {
-        this.policy = policy;
-    }
-
-    @Override
-    public void start(final Context context) {
-        context.subscribeEvent(EVENT_ORDER_REQUESTED, event -> event.payloadOpt()
-            .map(policy::approve)
-            .ifPresent(result -> context.newEvent(EVENT_ORDER_REVIEWED, () -> result).send()));
-    }
+                <code>{`@Override
+public void onEvent(final Event<?, ?> event) {
+    event.channel(EVENT_ORDER_REQUESTED)
+        .map(Event::payloadAck)
+        .map(policy::approve)
+        .ifPresent(result -> context()
+            .newEvent(EVENT_ORDER_REVIEWED, () -> result)
+            .send());
 }`}</code>
             </pre>
 

@@ -5,8 +5,7 @@ import CopyPostLink from "@/components/blog/copy-post-link";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import { blogPosts, getBlogPost } from "@/content/blog/posts";
-import { externalLinks, siteLinks } from "@/constants/links";
-import NanoBanner from "@/public/images/NanoBanner.svg";
+import { externalLinks, siteLinks, socialImages } from "@/constants/links";
 
 type BlogPostPageProps = {
     params: {
@@ -35,13 +34,13 @@ export function generateMetadata({ params }: BlogPostPageProps) {
             description: post.description,
             url: `${externalLinks.site}${siteLinks.blog.slice(1)}/${post.slug}`,
             type: "article",
-            images: NanoBanner,
+            images: [socialImages.openGraph],
         },
         twitter: {
             card: "summary_large_image",
             title: post.title,
             description: post.description,
-            images: NanoBanner,
+            images: [socialImages.twitter],
         },
     };
 }

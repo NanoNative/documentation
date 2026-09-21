@@ -61,18 +61,18 @@ const post: BlogPost = {
             </pre>
 
             <p>
-                A handler can then read the changed key, validate the value and update only the in-memory state it owns.
-                That validation step is important. Runtime config should be treated like user input: parse it, check it
-                and keep the previous value if the new value is invalid.
+                A service can then read the changed key in <code>configure</code>, validate the value and update only the
+                in-memory state it owns. Runtime config should be treated like user input: parse it, check it and keep
+                the previous value if the new value is invalid.
             </p>
 
             <pre>
-                <code>{`context.subscribeEvent(EVENT_CONFIG_CHANGE, (event, values) ->
-    Optional.ofNullable(values.get("order_retry_limit"))
-    .map(String::valueOf)
-    .map(Integer::parseInt)
-    .filter(limit -> limit >= 0 && limit <= 10)
-    .ifPresent(this::setRetryLimit));`}</code>
+                <code>{`@Override
+public void configure(final TypeMapI<?> changes, final TypeMapI<?> merged) {
+    changes.asIntOpt("order_retry_limit")
+        .filter(limit -> limit >= 0 && limit <= 10)
+        .ifPresent(this::setRetryLimit);
+}`}</code>
             </pre>
 
             <p>
