@@ -10,6 +10,16 @@ export const siteLinks = {
     pricing: "/pricing-plans",
 } as const;
 
+export const mainNavigationLinks = [
+    { name: "Home", id: "home", href: siteLinks.home },
+    { name: "Getting Started", id: "getting-started", href: siteLinks.gettingStarted },
+    { name: "Documentation", id: "documentation", href: siteLinks.docs },
+    { name: "Features", id: "features", href: siteLinks.features },
+    { name: "Blog", id: "blog", href: siteLinks.blog },
+    { name: "About", id: "about", href: siteLinks.about },
+    { name: "Community", id: "community", href: siteLinks.community },
+] as const;
+
 export const externalLinks = {
     site: "https://nanonative.org/",
     nanoRepo: "https://github.com/NanoNative/nano",

@@ -12,20 +12,7 @@ import Logo from "@/components/ui/logo";
 import Prism from "prismjs";
 import "prismjs/components/prism-java";
 import documentation_subtopic_content from "./documentationContent";
-import { siteLinks } from "@/constants/links";
-
-const menuItems = [
-    { name: "Home", id: "home", href: siteLinks.home },
-    {
-        name: "Getting Started",
-        id: "getting-started",
-        href: siteLinks.gettingStarted,
-    },
-    { name: "Documentation", id: "documentation", href: siteLinks.docs },
-    { name: "Features", id: "features", href: siteLinks.features },
-    { name: "About", id: "about", href: siteLinks.about },
-    { name: "Community", id: "community", href: siteLinks.community },
-];
+import { mainNavigationLinks, siteLinks } from "@/constants/links";
 
 const topics = [
     {
@@ -116,20 +103,29 @@ const topics = [
 ];
 
 export default function Layout() {
-    const [activeMenu, setActiveMenu] = useState(menuItems[0].id);
+    const [currentHash, setCurrentHash] = useState("");
     const [activeTopic, setActiveTopic] = useState<string | null>(null);
     const [visibleSubtopics, setVisibleSubtopics] = useState<string | null>(null);
     const [activeSubtopic, setActiveSubtopic] = useState<string | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isTopicsOpen, setIsTopicsOpen] = useState(false);
     const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+    const currentTopicId = currentHash.split("#")[1];
+    const activeMenu =
+        mainNavigationLinks.find(
+            (item) =>
+                item.href.startsWith(`${siteLinks.docs}#`) &&
+                item.href.split("#")[1] === currentTopicId
+        )?.id ?? "documentation";
 
     const applyHashNavigation = () => {
-        const splittedUrl = window.location.hash.substring(1).split("#");
-        if (splittedUrl?.length > 0 && splittedUrl[0] !== "") {
-            const topic = topics.find((u) => u.id === splittedUrl[0]);
+        const hash = window.location.hash;
+        const splitHash = hash.substring(1).split("#");
+        setCurrentHash(hash);
+        if (splitHash?.length > 0 && splitHash[0] !== "") {
+            const topic = topics.find((u) => u.id === splitHash[0]);
             if (topic) {
-                const subTopic = topic.subtopics.find((u) => u.id === splittedUrl[1]);
+                const subTopic = topic.subtopics.find((u) => u.id === splitHash[1]);
                 setActiveTopic(topic.id);
                 setVisibleSubtopics(topic.id);
                 setActiveSubtopic(subTopic?.id ?? null);
@@ -162,15 +158,13 @@ export default function Layout() {
     }, [activeSubtopic, activeTopic]);
 
     const handleDocumentationNavClick = (topic: string, subTopic?: string) => {
+        const hash = `#${topic}${subTopic ? `#${subTopic}` : ""}`;
         setActiveTopic(topic);
         setVisibleSubtopics(topic);
         setActiveSubtopic(subTopic ?? null);
+        setCurrentHash(hash);
         setIsTopicsOpen(false);
-        window.history.pushState(
-            null,
-            "",
-            `#${topic}${subTopic ? `#${subTopic}` : ""}`
-        );
+        window.history.pushState(null, "", hash);
     };
 
     const handleSubTopicItemNavClick = (topic: string, subTopic: string) => {
@@ -198,7 +192,7 @@ export default function Layout() {
                         <Logo />
                         <br />
                         <ul>
-                            {menuItems.map((item) => (
+                            {mainNavigationLinks.map((item) => (
                                 <li key={item.id}>
                                     <Link href={item.href}>
                                         <button
@@ -206,10 +200,14 @@ export default function Layout() {
                                                 activeMenu === item.id ? "bg-gray-400" : ""
                                             }`}
                                             onClick={() => {
-                                                setActiveMenu(item.id);
                                                 setIsSidebarOpen(false);
+                                                setCurrentHash(item.href.includes("#") ? item.href.slice(item.href.indexOf("#")) : "");
                                                 if (item.id === "getting-started") {
                                                     handleTopicItemNavClick("getting-started");
+                                                } else if (item.id === "documentation") {
+                                                    setActiveTopic(topics[0].id);
+                                                    setVisibleSubtopics(topics[0].id);
+                                                    setActiveSubtopic(null);
                                                 }
                                             }}
                                         >

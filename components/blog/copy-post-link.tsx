@@ -7,24 +7,17 @@ type CopyPostLinkProps = {
 };
 
 export default function CopyPostLink({ url }: CopyPostLinkProps) {
-    const [copied, setCopied] = useState(false);
+    const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
     async function copyLink() {
-        if (navigator.clipboard) {
+        try {
             await navigator.clipboard.writeText(url);
-        } else {
-            const textArea = document.createElement("textarea");
-            textArea.value = url;
-            textArea.style.position = "fixed";
-            textArea.style.left = "-9999px";
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textArea);
+            setCopyState("copied");
+        } catch {
+            setCopyState("failed");
         }
 
-        setCopied(true);
-        window.setTimeout(() => setCopied(false), 1800);
+        window.setTimeout(() => setCopyState("idle"), 1800);
     }
 
     return (
@@ -34,7 +27,7 @@ export default function CopyPostLink({ url }: CopyPostLinkProps) {
             className="inline-flex h-9 items-center gap-2 rounded border border-gray-300 bg-white px-3 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:text-gray-950"
             aria-label="Copy link to this blog post"
         >
-            {copied ? (
+            {copyState === "copied" ? (
                 <svg
                     className="h-4 w-4 text-green-600"
                     viewBox="0 0 20 20"
@@ -68,7 +61,7 @@ export default function CopyPostLink({ url }: CopyPostLinkProps) {
                     />
                 </svg>
             )}
-            {copied ? "Copied" : "Copy link"}
+            {copyState === "copied" ? "Copied" : copyState === "failed" ? "Copy failed" : "Copy link"}
         </button>
     );
 }
