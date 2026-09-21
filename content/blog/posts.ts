@@ -1,13 +1,11 @@
 import devConsoleObservability from "./nano-developer-console-observability";
 import changingRuntimeConfig from "./changing-nano-configuration-at-runtime";
-import servicesAreConnectors from "./nano-services-are-connectors";
-import thinkingInEvents from "./thinking-in-events-not-controllers";
+import orchestrationToChoreography from "./from-orchestration-to-choreography";
 import nativeJavaServices from "./why-nano-fits-native-java-services";
 import type { BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
-    thinkingInEvents,
-    servicesAreConnectors,
+    orchestrationToChoreography,
     changingRuntimeConfig,
     nativeJavaServices,
     devConsoleObservability,

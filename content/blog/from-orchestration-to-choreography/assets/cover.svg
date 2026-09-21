@@ -1,0 +1,63 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="72" y="62" width="1056" height="506" rx="14" fill="transparent" stroke="#263244"/>
+
+  <path d="M602 72L500 558" stroke="#334155" stroke-width="2" stroke-dasharray="10 14"/>
+  <text x="118" y="130" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">orchestration</text>
+  <text x="668" y="130" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">choreography</text>
+
+  <rect x="126" y="214" width="238" height="126" rx="12" fill="#111827" stroke="#475569"/>
+  <text x="168" y="268" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">central</text>
+  <text x="168" y="302" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">orchestrator</text>
+  <path d="M142 230L348 324" stroke="#FF69B4" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+  <path d="M348 230L142 324" stroke="#FF69B4" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+
+  <rect x="132" y="128" width="132" height="52" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="158" y="161" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">HTTP</text>
+  <rect x="384" y="154" width="132" height="52" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="408" y="187" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">metrics</text>
+  <rect x="108" y="386" width="132" height="52" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="136" y="419" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">logs</text>
+  <rect x="358" y="416" width="132" height="52" rx="8" fill="#0F172A" stroke="#334155"/>
+  <text x="382" y="449" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">config</text>
+
+  <path d="M234 180L224 214" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M384 206L344 236" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M222 386L216 340" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M390 416L342 334" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M264 180L414 416" stroke="#64748B" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+  <path d="M384 180L176 386" stroke="#64748B" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+
+  <circle cx="822" cy="318" r="138" fill="#0F172A" stroke="#5799EA" stroke-width="2"/>
+  <circle cx="822" cy="318" r="78" fill="#162033" stroke="#334155"/>
+  <text x="784" y="310" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">Nano</text>
+  <text x="760" y="344" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">event runtime</text>
+
+  <path d="M718 228C774 166 870 164 926 226" stroke="#A6C1EE" stroke-width="5" stroke-linecap="round"/>
+  <path d="M912 222L934 236L909 245" stroke="#A6C1EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M946 300C968 380 916 456 834 464" stroke="#FF69B4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M850 450L824 464L849 478" stroke="#FF69B4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M762 452C686 422 654 336 690 264" stroke="#7DD3FC" stroke-width="5" stroke-linecap="round"/>
+  <path d="M700 282L692 256L674 276" stroke="#7DD3FC" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="656" y="180" width="158" height="60" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="688" y="217" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">HttpServer</text>
+  <rect x="866" y="178" width="162" height="60" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="898" y="215" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">OrderService</text>
+  <rect x="932" y="356" width="150" height="60" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="966" y="393" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Audit</text>
+  <rect x="626" y="420" width="172" height="60" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="660" y="457" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Metrics</text>
+
+  <rect x="650" y="508" width="296" height="34" rx="7" fill="#0F172A" stroke="#334155"/>
+  <text x="674" y="531" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">events choreograph the flow</text>
+
+  <circle cx="822" cy="202" r="6" fill="#A6C1EE"/>
+  <circle cx="906" cy="247" r="6" fill="#A6C1EE"/>
+  <circle cx="936" cy="318" r="7" fill="#FF69B4"/>
+  <circle cx="913" cy="388" r="6" fill="#FF69B4"/>
+  <circle cx="822" cy="434" r="6" fill="#FF69B4"/>
+  <circle cx="759" cy="415" r="7" fill="#7DD3FC"/>
+  <circle cx="713" cy="358" r="6" fill="#7DD3FC"/>
+  <circle cx="713" cy="278" r="6" fill="#7DD3FC"/>
+  <circle cx="849" cy="204" r="5" fill="#A6C1EE"/>
+</svg>

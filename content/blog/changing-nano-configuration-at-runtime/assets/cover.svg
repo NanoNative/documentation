@@ -8,19 +8,19 @@
   <text x="142" y="324" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">sample_rate=0.25</text>
   <text x="142" y="356" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">log_level=INFO</text>
   <rect x="500" y="214" width="214" height="228" rx="10" fill="#162033" stroke="#5799EA"/>
-  <text x="534" y="278" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">EVENT_CONFIG</text>
-  <text x="534" y="306" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">CHANGE</text>
-  <text x="548" y="352" fill="#A6C1EE" font-family="Inter, Arial, sans-serif" font-size="20">validate</text>
-  <text x="548" y="384" fill="#A6C1EE" font-family="Inter, Arial, sans-serif" font-size="20">apply</text>
+  <text x="526" y="254" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">EVENT_CONFIG</text>
+  <text x="526" y="282" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">CHANGE</text>
+  <text x="526" y="336" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">application.properties</text>
+  <text x="526" y="370" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">env.properties</text>
   <rect x="806" y="214" width="278" height="228" rx="10" fill="#0F172A" stroke="#334155"/>
   <text x="832" y="252" fill="#FF69B4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">active state</text>
-  <text x="832" y="292" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">retryLimit: 3</text>
-  <text x="832" y="324" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">sampleRate: 0.25</text>
-  <text x="832" y="356" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">lastKnownGood: true</text>
-  <path d="M408 328H482" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
-  <path d="M474 314L492 328L474 342" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M714 328H788" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
-  <path d="M780 314L798 328L780 342" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="116" y="484" width="968" height="38" rx="6" fill="#0F172A" stroke="#334155"/>
-  <text x="142" y="509" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">reload class: immediate | deferred | restart | dangerous</text>
+  <text x="832" y="292" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">order_retry_limit=5</text>
+  <text x="832" y="324" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">sample_rate=0.50</text>
+  <text x="832" y="356" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">log_level=DEBUG</text>
+  <path d="M426 328H468" stroke="#94A3B8" stroke-width="4" stroke-linecap="butt"/>
+  <path d="M468 316L490 328L468 340Z" fill="#94A3B8"/>
+  <path d="M732 328H774" stroke="#94A3B8" stroke-width="4" stroke-linecap="butt"/>
+  <path d="M774 316L796 328L774 340Z" fill="#94A3B8"/>
+  <rect x="116" y="484" width="452" height="38" rx="6" fill="#0F172A" stroke="#334155"/>
+  <text x="142" y="509" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">reload services: apply | restart | ignore</text>
 </svg>

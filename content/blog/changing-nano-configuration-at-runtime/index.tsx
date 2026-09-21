@@ -6,7 +6,7 @@ const post: BlogPost = {
     title: "Changing Nano Configuration At Runtime",
     description:
         "Nano can treat configuration changes as runtime events, letting services reload selected values deliberately.",
-    date: "2026-09-18",
+    date: "2026-09-20",
     author: "NanoNative Team",
     tags: ["Nano", "Configuration", "Runtime"],
     readingTime: "5 min read",
@@ -30,9 +30,8 @@ const post: BlogPost = {
             <h2>Configuration Is Still Explicit</h2>
             <p>
                 Nano can read configuration from property files, environment variables, JVM system properties, command
-                line arguments and values passed at startup. The important part is that services access configuration
-                through the same context model. The service should not need to know whether a value came from a file, an
-                environment variable or a startup map.
+                line arguments and values passed into the Nano DSL. Services access those values through the same context
+                model.
             </p>
 
             <pre>
@@ -47,7 +46,7 @@ const post: BlogPost = {
                 after the process is alive.
             </p>
 
-            <h2>Changes Can Become Events</h2>
+            <h2>Config Changes Become Events</h2>
             <p>
                 When a config update is published, interested services can react. A service might update a threshold,
                 change a polling interval, reload a template path or refresh a certificate reference. The update is not
@@ -55,9 +54,10 @@ const post: BlogPost = {
             </p>
 
             <pre>
-                <code>{`context.sendEvent(EVENT_CONFIG_CHANGE, Map.of(
-    "app_service_http_port", "8081"
-));`}</code>
+                <code>{`context.newEvent(EVENT_CONFIG_CHANGE, () -> Map.of(
+    "order_retry_limit", "5",
+    "order_sample_rate", "0.50"
+)).broadcast(true).async(true).send();`}</code>
             </pre>
 
             <p>
@@ -67,9 +67,8 @@ const post: BlogPost = {
             </p>
 
             <pre>
-                <code>{`context.subscribeEvent(EVENT_CONFIG_CHANGE, event -> event.payloadOpt()
-    .map(Map.class::cast)
-    .map(values -> values.get("order_retry_limit"))
+                <code>{`context.subscribeEvent(EVENT_CONFIG_CHANGE, (event, values) ->
+    Optional.ofNullable(values.get("order_retry_limit"))
     .map(String::valueOf)
     .map(Integer::parseInt)
     .filter(limit -> limit >= 0 && limit <= 10)
@@ -78,8 +77,8 @@ const post: BlogPost = {
 
             <p>
                 A production-grade handler would usually log rejected values and expose the active value through metrics
-                or a local observability endpoint. The important part is that the state transition is owned by the
-                service. The config event asks for a change. The service decides whether the change is safe.
+                or a local observability endpoint. The service owns the state transition. The config event asks for a
+                change. The service decides whether the change is safe.
             </p>
 
             <h2>Where FileWatcher Fits</h2>
@@ -90,9 +89,8 @@ const post: BlogPost = {
             </p>
 
             <p>
-                File watching is most useful when the application owns the reload semantics. A changed file can produce an
-                event but the service should still decide whether to reload immediately, debounce repeated changes or
-                wait until the next request.
+                File watching works best when the application owns the reload semantics. A changed file can produce an
+                event but the service should still decide whether to reload immediately or bounce changes.
             </p>
 
             <h2>Think In Reload Classes</h2>
@@ -102,15 +100,9 @@ const post: BlogPost = {
 
             <ul>
                 <li>Immediate values can be swapped in memory, such as retry limits and sampling rates.</li>
-                <li>Deferred values can apply to new work but should not affect work already in flight.</li>
+                <li>Deferred values can apply to new work but will not affect work already in flight.</li>
                 <li>Restart values affect resources created at startup, such as ports and core service composition.</li>
-                <li>Dangerous values need validation, audit logging and sometimes manual approval.</li>
             </ul>
-
-            <p>
-                These classes prevent a common mistake: making a setting technically mutable before deciding whether it is
-                operationally safe to mutate.
-            </p>
 
             <h2>Good Runtime Settings Are Boring</h2>
             <p>
@@ -122,27 +114,25 @@ const post: BlogPost = {
             <p>
                 Ports, database schemas and object construction rules are different. They often affect resources that
                 were created during startup. Reloading those values can be done but it needs a deliberate stop-start path
-                and tests that cover partial failure.
+                and would need to be coded by the application developer.
             </p>
 
             <h2>Failure Handling Is Part Of The Feature</h2>
             <p>
                 A reload path is not complete until the failure path is boring. If a value cannot be parsed, keep the last
-                known good value. If a file changes twice in quick succession, avoid applying a half-written file. If a
-                dependent resource cannot restart, keep serving with the old resource when possible and publish an error
-                event.
+                known good value.
             </p>
 
             <p>
-                This is where Nano's event model is useful. A failed reload can be an event too. A logging service, metric
-                service or Developer Console can observe it without being wired directly into the business service.
+                Nano's event model keeps that failure path visible. A failed reload can be an event too. A logging service,
+                metric service or Developer Console can observe it without being wired directly into the business service.
             </p>
 
             <h2>What To Watch</h2>
             <p>
                 Runtime configuration is not a reason to make every setting mutable. Some values are safe to reload.
-                Others should stay fixed for the life of the process. The useful design is to make the reload path
-                explicit, preserve the last known good value and test invalid updates like any other runtime behavior.
+                Others should stay fixed for the life of the process. Keep the reload path explicit, preserve the last
+                known good value and test invalid updates like any other runtime behavior.
             </p>
         </>
     ),

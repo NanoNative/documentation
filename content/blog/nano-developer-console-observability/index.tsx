@@ -5,8 +5,8 @@ const post: BlogPost = {
     slug: "nano-developer-console-observability",
     title: "Local Observability For Nano Applications",
     description:
-        "Developer Console gives a local view into events, logs, metrics, runtime config and services while a Nano app runs.",
-    date: "2026-09-16",
+        "Developer Console makes event-driven Nano applications easier to inspect by showing events, logs, metrics and runtime configs while the app runs.",
+    date: "2026-09-21",
     author: "NanoNative Team",
     tags: ["Observability", "Developer Console", "Nano"],
     readingTime: "5 min read",
@@ -15,34 +15,36 @@ const post: BlogPost = {
     content: (
         <>
             <p>
-                Sometimes the first observability problem is local. A service is running, events are moving and you want
-                to know what just happened without wiring a full telemetry stack. Did the request arrive? Which event was
-                published? Did the config change apply? Is the service still alive?
+                Event-driven code is harder to debug than synchronous code. A synchronous call stack gives
+                you an obvious path from caller to callee. In an event-driven runtime, work can move through channels,
+                subscribers, filters, replies and error handlers before the original symptom becomes visible.
             </p>
 
             <p>
-                The Nano Developer Console is a Nano service for that loop. It adds a local HTTP UI and JSON endpoints
-                for recent events, logs, system metrics, runtime configuration and service state.
-            </p>
-
-            <h2>The Problem Is Feedback Time</h2>
-            <p>
-                Production observability usually optimizes for durability, correlation, alerting and retention. Local
-                observability optimizes for feedback time. When a developer is changing a handler, tuning runtime config
-                or checking a service interaction, waiting for a full telemetry pipeline is too much ceremony.
+                That makes local visibility important. A service is running, events are moving and you want to know what
+                actually happened. Did the request arrive? Which event was published? Did a subscriber match it? Did the
+                config change apply? Is the service still alive?
             </p>
 
             <p>
-                Developer Console exists for that shorter loop. It gives the running process a local inspection surface,
-                mounted under <code>/dev-console</code>, without requiring the application to be deployed somewhere else
-                first.
+                The Nano Developer Console is a Nano service for that debugging surface. It adds a local HTTP UI and JSON
+                endpoints for recent events, logs, system metrics, runtime configuration and service state.
+            </p>
+
+            <h2>Why Events Need An Inspection Surface</h2>
+            <p>
+                That question matters more in event-driven code because the control flow is no longer sitting in one
+                stack trace. A request may publish an event, another service may react, a third service may emit a reply
+                and an error may be handled on a separate channel. Developer Console gives the running process a local
+                inspection surface, mounted under <code>/dev-console</code>, so those runtime movements are visible
+                while the application is still on the developer machine.
             </p>
 
             <h2>What It Shows</h2>
             <ul>
                 <li>Live events with pause and export controls.</li>
                 <li>Live logs from the running Nano application.</li>
-                <li>Runtime metrics such as heap usage, CPU usage, thread counts and total events.</li>
+                <li>Runtime metrics such as heap usage, CPU usage, thread counts and events.</li>
                 <li>Configuration values that can be changed while the app is running.</li>
                 <li>Service start and stop controls when service indexing is configured.</li>
             </ul>
@@ -67,38 +69,38 @@ const post: BlogPost = {
 
             <p>
                 This is the same explicit-service style as the rest of Nano. The console is present because the
-                application starts it. Remove the service and the UI disappears from the runtime.
+                application starts it. Remove the service and it is omitted from the runtime.
             </p>
 
             <h2>What The Mount Path Means</h2>
             <p>
-                The console is mounted under <code>/dev-console</code> by default. The UI lives at{" "}
-                <code>http://localhost:8080/dev-console/ui</code>. Keeping the console under a distinct path makes it
+                The console is mounted under <code>/dev-console</code> by default. The UI lives at <code>http://localhost:8080/dev-console/ui</code>.
+                Keeping the console under a distinct path makes it
                 easier to recognize which endpoints belong to application behavior and which endpoints belong to local
                 inspection.
             </p>
 
             <p>
-                That boundary matters when a service also exposes its own HTTP API. The console should be easy to find
+                That boundary helps when a service also exposes its own HTTP API. The console should stay visible
                 during development but should not blur into the business API.
             </p>
 
             <h2>The UI Is Only Half The Story</h2>
             <p>
-                A local observability tool should be useful both to a person and to a script. The Developer Console
-                exposes a UI for inspection and JSON endpoints for runtime data. That makes it useful during manual
+                A local observability tool should serve both a person and a script. The Developer Console
+                exposes a UI for inspection and JSON endpoints for runtime data. That helps during manual
                 debugging, smoke tests and automated checks around local development environments.
             </p>
 
             <p>
-                For example, a developer can open the UI after starting the service and watch events move through the
-                application. A test can query the JSON endpoint to confirm that expected services started or that a recent
-                event was emitted. The same runtime state supports both workflows.
+                For example, a developer can query the console endpoints from a script and analyze metrics over a time
+                window. This can also be done retroactively by exporting logs since the service started. A test can poll
+                the JSON endpoint to confirm that a recent event was emitted.
             </p>
 
             <h2>Event Inspection Is The Center</h2>
             <p>
-                Nano applications are event-oriented, so the most useful local question is often: what event did the
+                Nano applications are event-oriented, so the first local question is often: what event did the
                 runtime see? The event view helps answer that before you spend time reading logs. If the event is missing,
                 the problem is upstream. If the event exists and no subscriber reacts, the problem is in routing,
                 filtering or service startup. If the subscriber reacts and the response is wrong, the problem is inside
@@ -106,52 +108,28 @@ const post: BlogPost = {
             </p>
 
             <p>
-                That order gives local debugging a simple structure. Event first, subscriber second, error third, config
-                fourth. Logs are still useful but they stop being the only window into the process.
+                That order gives local debugging a simple structure. Event first, subscriber second, error third. Good
+                logs are still important; they make root-cause analysis much faster once the event path is clear.
             </p>
 
-            <h2>Why It Belongs In Development</h2>
+            <h2>Where It Fits</h2>
             <p>
-                The console keeps recent observability data in memory. That makes it useful for development and test
+                The console keeps recent observability data in memory. That suits development and test
                 environments where quick inspection matters more than long-term storage. It is designed for the moment
-                when you are building the service and need answers immediately.
+                when you are building or fixing the service and need to trace a flow.
             </p>
 
             <p>
-                That is a different job from production observability. Production systems need durable logs, metrics,
-                traces, alerting, retention policies and access control. Developer Console is about shortening the local
-                feedback loop before the service reaches that environment.
-            </p>
-
-            <h2>How It Fits With Production Telemetry</h2>
-            <p>
-                Developer Console should not compete with OpenTelemetry, Prometheus, log aggregation or tracing backends.
-                It sits earlier in the lifecycle. The developer uses it to understand whether the application is emitting
-                the right signals. Production telemetry then collects durable signals from deployed services.
-            </p>
-
-            <p>
-                That division is healthy. Local tools should be fast, close and disposable. Production tools should be
-                durable, secure and queryable over time.
-            </p>
-
-            <h2>What To Look For First</h2>
-            <p>
-                When debugging a Nano application locally, start with the event stream. If the expected event is missing,
-                the problem is usually before the service handler. If the event exists but no reply appears, inspect the
-                subscriber and the error stream. If both look correct, move to logs and runtime config.
-            </p>
-
-            <p>
-                This order keeps the investigation close to the application model: event, subscriber, error, config. It
-                also avoids the common trap of staring at logs before confirming that the runtime saw the event at all.
+                It is not trying to be a durable telemetry backend. It is closer to an inspection window for the process
+                in front of you: recent events, current config, service state and the logs you need while the behavior is
+                still fresh.
             </p>
 
             <h2>What To Watch</h2>
             <p>
-                Developer Console is not a replacement for production telemetry. It is a local tool for understanding a
-                running app while building, testing or debugging it. Production systems still need a durable observability
-                backend.
+                A console can show what the runtime saw but it cannot fix unclear event design. Give events names that
+                describe what happened, keep payload types predictable and avoid hiding important state changes behind
+                generic channels. The clearer the event model is, the better the debugging surface becomes.
             </p>
         </>
     ),
