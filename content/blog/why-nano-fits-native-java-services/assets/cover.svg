@@ -4,9 +4,15 @@
       <stop stop-color="#FBC2EB"/>
       <stop offset="1" stop-color="#A6C1EE"/>
     </linearGradient>
+    <linearGradient id="nanoDarkBg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset=".5" stop-color="#334155"/>
+      <stop offset="1" stop-color="#475569"/>
+    </linearGradient>
   </defs>
+  <rect width="1200" height="630" fill="url(#nanoDarkBg)"/>
   <rect x="74" y="64" width="1052" height="502" rx="14" fill="transparent" stroke="#263244"/>
-  <rect x="112" y="92" width="250" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="104" y="92" width="246" height="5" rx="2.5" fill="url(#nanoGradient)"/>
   <rect x="850" y="540" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
   <g opacity=".9">
     <path d="M1026 522L1052 506L1078 522" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
