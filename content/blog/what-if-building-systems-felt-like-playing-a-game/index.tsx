@@ -112,6 +112,15 @@ const post: BlogPost = {
             <p>
                 And once the tool becomes good enough, the work changes. We stop babysitting glue and start designing the system like terrain in a strategy game.
             </p>
+
+            <p>
+                <a
+                    href="https://railix.mitbauen.space/"
+                    className="font-semibold text-nanoLinkBlue underline underline-offset-4 hover:text-blue-700"
+                >
+                    More about Railix
+                </a>
+            </p>
         </>
     ),
 };
