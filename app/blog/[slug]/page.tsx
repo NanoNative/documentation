@@ -5,7 +5,7 @@ import CopyPostLink from "@/components/blog/copy-post-link";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import { blogPosts, getBlogPost } from "@/content/blog/posts";
-import { externalLinks, siteLinks, socialImages } from "@/constants/links";
+import { externalLinks, siteLinks } from "@/constants/links";
 
 type BlogPostPageProps = {
     params: {
@@ -26,6 +26,13 @@ export function generateMetadata({ params }: BlogPostPageProps) {
         };
     }
 
+    const postImage = {
+        url: `/images/blog/${post.slug}/cover.png`,
+        width: 1200,
+        height: 630,
+        alt: post.coverAlt,
+    };
+
     return {
         title: `${post.title} | NanoNative Blog`,
         description: post.description,
@@ -34,13 +41,13 @@ export function generateMetadata({ params }: BlogPostPageProps) {
             description: post.description,
             url: `${externalLinks.site}${siteLinks.blog.slice(1)}/${post.slug}`,
             type: "article",
-            images: [socialImages.openGraph],
+            images: [postImage],
         },
         twitter: {
             card: "summary_large_image",
             title: post.title,
             description: post.description,
-            images: [socialImages.twitter],
+            images: [postImage],
         },
     };
 }

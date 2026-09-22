@@ -1,5 +1,19 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nanoGradient" x1="74" y1="0" x2="1126" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBC2EB"/>
+      <stop offset="1" stop-color="#A6C1EE"/>
+    </linearGradient>
+  </defs>
   <rect x="74" y="64" width="1052" height="502" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="112" y="92" width="250" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="850" y="540" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
+  <g opacity=".9">
+    <path d="M1026 522L1052 506L1078 522" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1026" cy="522" r="5" fill="#FF69B4"/>
+    <circle cx="1052" cy="506" r="5" fill="#A6C1EE"/>
+    <circle cx="1078" cy="522" r="5" fill="#5799EA"/>
+  </g>
   <text x="112" y="128" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Native Java, with less mystery</text>
   <text x="112" y="160" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="18">explicit services give native-image a smaller surface to close over</text>
 

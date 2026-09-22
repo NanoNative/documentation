@@ -1,5 +1,20 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nanoGradient" x1="72" y1="0" x2="1128" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBC2EB"/>
+      <stop offset="1" stop-color="#A6C1EE"/>
+    </linearGradient>
+  </defs>
   <rect x="72" y="62" width="1056" height="506" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="194" y="96" width="228" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="742" y="96" width="218" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="904" y="544" width="156" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
+  <g opacity=".9">
+    <path d="M1068 520L1044 504L1020 520" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1068" cy="520" r="5" fill="#A6C1EE"/>
+    <circle cx="1044" cy="504" r="5" fill="#FF69B4"/>
+    <circle cx="1020" cy="520" r="5" fill="#5799EA"/>
+  </g>
 
   <path d="M600 96L600 532" stroke="#334155" stroke-width="2" stroke-dasharray="10 14"/>
   <text x="194" y="132" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">orchestration</text>

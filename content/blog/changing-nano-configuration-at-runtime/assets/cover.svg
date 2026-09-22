@@ -1,5 +1,19 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nanoGradient" x1="78" y1="0" x2="1122" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBC2EB"/>
+      <stop offset="1" stop-color="#A6C1EE"/>
+    </linearGradient>
+  </defs>
   <rect x="78" y="70" width="1044" height="490" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="100" y="96" width="238" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="862" y="536" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
+  <g opacity=".9">
+    <path d="M1038 518L1064 502L1090 518" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1038" cy="518" r="5" fill="#FF69B4"/>
+    <circle cx="1064" cy="502" r="5" fill="#A6C1EE"/>
+    <circle cx="1090" cy="518" r="5" fill="#5799EA"/>
+  </g>
   <text x="116" y="132" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Runtime configuration</text>
   <text x="116" y="164" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="18">reload only the values that are safe to change</text>
   <rect x="116" y="214" width="292" height="228" rx="10" fill="#0F172A" stroke="#334155"/>
