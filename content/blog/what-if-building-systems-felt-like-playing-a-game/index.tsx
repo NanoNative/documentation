@@ -88,7 +88,7 @@ const post: BlogPost = {
             </p>
 
             <p>
-                That is why examples matter in Railix. Examples become living specifications. They prove the
+                That is why examples matter in railix. Examples become living specifications. They prove the
                 model before an artifact is created. The product becomes easier to reason about because the model,
                 verification and runtime boundary come from one source of truth.
             </p>
@@ -118,7 +118,7 @@ const post: BlogPost = {
                     href="https://railix.mitbauen.space/"
                     className="font-semibold text-nanoLinkBlue underline underline-offset-4 hover:text-blue-700"
                 >
-                    More about Railix
+                    More about railix
                 </a>
             </p>
         </>
