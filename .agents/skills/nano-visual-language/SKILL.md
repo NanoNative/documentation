@@ -6,14 +6,15 @@ description: Apply or review NanoNative visual identity across websites, interfa
 # NanoNative visual language
 
 Use the [canonical specification](../../../docs/specs/nano-visual-language.md)
-for design rules, role values, and the mascot profile. Its linked character
-reference supplies visual context. Read the
+for design rules, role values, and the mascot profile. It is independently
+usable; this skill provides an optional application workflow. Read the
 [ADR](../../../docs/adr/0001-semantic-visual-language.md) when changing the design
 model or its representation.
 
 These paths are relative to this distribution, not the consumer's working
-project. Keep the specification and its linked reference available when moving
-the skill; do not maintain a second palette or mascot profile inside the skill.
+project. Keep the specification available when moving the skill; its optional
+reference images may accompany it. Do not maintain a second palette or mascot
+profile inside the skill.
 
 ## Apply the language
 
@@ -32,7 +33,9 @@ the skill; do not maintain a second palette or mascot profile inside the skill.
    theme, not an interactive theme selector. The editorial portrait composition
    is an optional profile; derive publisher identity and format from the output
    brief rather than making the reference's personal footer a universal default.
-5. For mascot work, use the full profile and image reference. Build the brief
+5. For mascot work, follow
+   [Using the written profile](../../../docs/specs/nano-visual-language.md#using-the-written-profile).
+   Build the brief
    from concept, pose, expression, prop, composition, and final display size.
    Apply the profile's required and optional features while varying the scene.
    An individual reference pose does not add anatomical requirements; do not

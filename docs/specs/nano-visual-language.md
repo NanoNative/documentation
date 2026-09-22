@@ -13,10 +13,12 @@ social media, and illustrations. It defines visual relationships and observable
 behavior independently of a project, framework, design application, rendering
 engine, or publishing platform. A consumer maps these rules to its own tools.
 
-The specification owns the design rules and reference values. The
+This specification is the standalone source for the design rules and reference
+values. Designers and automated tools can apply it directly without loading a
+skill or using a particular assistant. The
 [ADR](../adr/0001-semantic-visual-language.md) explains the design model. The
 [application skill](../../.agents/skills/nano-visual-language/SKILL.md) describes
-how to use the standard without maintaining a second set of design rules.
+an optional workflow for applying the same standard and adds no design rules.
 
 MUST indicates a requirement; SHOULD indicates a recommendation; MAY indicates
 an optional treatment. Requirements apply where the medium supports the relevant
@@ -358,6 +360,18 @@ Nano is a tiny automation companion: curious, precise, friendly, and mildly dry
 about unnecessary complexity. Its role is to explain, investigate, and accompany.
 Humor targets needless complexity, never a reader's ability or a failed task.
 
+### Using the written profile
+
+The written anatomy, materials, expressions, and variation rules below, together
+with this specification's palette and illustration guidance, define Nano's
+character. Use that text as the primary reference for illustration briefs,
+generation, and review. Routine use does not require image analysis.
+
+The reference image is an optional visual aid for closer stylistic matching or
+clarifying visual detail. It adds no mandatory traits and does not override the
+written distinction between required and optional features. If a depiction
+differs from the written profile, the written profile governs.
+
 ![Nano mascot reference showing anatomy, poses, materials, and colors](assets/nano-mascot-reference.png)
 
 ### Identity and anatomy
@@ -428,12 +442,13 @@ message, instruction, or required action.
 A tool-neutral illustration brief combines:
 
 - Purpose and the single concept the scene should explain.
-- The anatomy and material profile above, with the reference image.
+- The written anatomy and material profile above; an image may accompany it as
+  an optional visual aid.
 - Expression, pose, prop, and the object of attention.
 - Composition, crop, background theme, lighting, and space reserved for text.
 - Final dimensions and the smallest expected display size.
 
-Example: "Nano explains a simplified three-step flow. Use the reference anatomy,
+Example: "Nano explains a simplified three-step flow. Use the written mascot profile,
 curious green display expression, off-white shell, paired translucent wings,
 green spring legs, and upright N badge. Position the character beside the flow,
 pointing to its first step. Keep the background quiet, retain pink/blue brand
@@ -452,6 +467,7 @@ remain literal and helpful.
 | NVL-015 | Mascot variants MUST preserve the identity and anatomy defined in this specification, allowing the stated pose, framing, and rendering variations. |
 | NVL-016 | NanoNative logo use MUST preserve the original artwork's geometry, colors, and lettering. |
 | NVL-017 | Error and recovery copy MUST state the problem and available next step without jokes or blame. |
+| NVL-019 | All required mascot traits and allowed variations MUST be specified in text; reference images and tool-specific skills MUST NOT introduce additional character requirements. |
 
 ## Conformance checks
 
@@ -466,8 +482,9 @@ to the medium and present features. This table defines checks, not test results.
 | NVL-009, NVL-010 | Inspect reading order and hierarchy; test web reflow and text enlargement, or proof a fixed-format output at its intended size and crop. |
 | NVL-011, NVL-013 | Compare example text, copyable content, navigation destinations, and references before and after a visual restyle. |
 | NVL-012 | Request reduced motion and verify visible content without decorative animation. |
-| NVL-014, NVL-015, NVL-016 | Inspect text alternatives, compare mascot anatomy with the reference, and compare logo usage with original artwork at final display size. |
+| NVL-014, NVL-015, NVL-016 | Inspect text alternatives, compare mascot anatomy with the written profile, and compare logo usage with original artwork at final display size. Mascot images may additionally support visual comparison. |
 | NVL-017 | Read error or recovery text without its illustration; the problem and available action remain understandable. |
+| NVL-019 | With reference images and the application skill unavailable, use this specification to prepare a mascot brief covering anatomy, materials, palette, expressions, and required/optional features. Verify that no required character detail depends on an image or skill. |
 | Medium-specific guidance | Inspect the actual crop, output size, content hierarchy, metadata, and link preview where relevant; check the receiving platform when its rendering affects the result. |
 
 A delivery records applicable checks actually performed and any remaining
