@@ -1,0 +1,46 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nanoGradient" x1="78" y1="0" x2="1122" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBC2EB"/>
+      <stop offset="1" stop-color="#A6C1EE"/>
+    </linearGradient>
+    <linearGradient id="nanoDarkBg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset=".5" stop-color="#334155"/>
+      <stop offset="1" stop-color="#475569"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#nanoDarkBg)"/>
+  <rect x="78" y="70" width="1044" height="490" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="104" y="92" width="246" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="862" y="536" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
+  <g opacity=".9">
+    <path d="M1038 518L1064 502L1090 518" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1038" cy="518" r="5" fill="#FF69B4"/>
+    <circle cx="1064" cy="502" r="5" fill="#A6C1EE"/>
+    <circle cx="1090" cy="518" r="5" fill="#5799EA"/>
+  </g>
+  <text x="116" y="132" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Runtime configuration</text>
+  <text x="116" y="164" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="18">reload only the values that are safe to change</text>
+  <rect x="116" y="214" width="292" height="228" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="142" y="252" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">config.properties</text>
+  <text x="142" y="292" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">order_retry_limit=3</text>
+  <text x="142" y="324" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">sample_rate=0.25</text>
+  <text x="142" y="356" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">log_level=INFO</text>
+  <rect x="500" y="214" width="214" height="228" rx="10" fill="#162033" stroke="#5799EA"/>
+  <text x="526" y="254" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">EVENT_CONFIG</text>
+  <text x="526" y="282" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">CHANGE</text>
+  <text x="526" y="336" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">application.properties</text>
+  <text x="526" y="370" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">env.properties</text>
+  <rect x="806" y="214" width="278" height="228" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="832" y="252" fill="#FF69B4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">active state</text>
+  <text x="832" y="292" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">order_retry_limit=5</text>
+  <text x="832" y="324" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">sample_rate=0.50</text>
+  <text x="832" y="356" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">log_level=DEBUG</text>
+  <path d="M426 328H468" stroke="#94A3B8" stroke-width="4" stroke-linecap="butt"/>
+  <path d="M468 316L490 328L468 340Z" fill="#94A3B8"/>
+  <path d="M732 328H774" stroke="#94A3B8" stroke-width="4" stroke-linecap="butt"/>
+  <path d="M774 316L796 328L774 340Z" fill="#94A3B8"/>
+  <rect x="116" y="484" width="452" height="38" rx="6" fill="#0F172A" stroke="#334155"/>
+  <text x="142" y="509" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">reload services: apply | restart | ignore</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nanoGradient" x1="74" y1="0" x2="1126" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBC2EB"/>
+      <stop offset="1" stop-color="#A6C1EE"/>
+    </linearGradient>
+    <linearGradient id="nanoDarkBg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset=".5" stop-color="#334155"/>
+      <stop offset="1" stop-color="#475569"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#nanoDarkBg)"/>
+  <rect x="74" y="64" width="1052" height="502" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="104" y="92" width="246" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="850" y="540" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
+  <g opacity=".9">
+    <path d="M1026 522L1052 506L1078 522" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1026" cy="522" r="5" fill="#FF69B4"/>
+    <circle cx="1052" cy="506" r="5" fill="#A6C1EE"/>
+    <circle cx="1078" cy="522" r="5" fill="#5799EA"/>
+  </g>
+  <text x="112" y="128" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Native Java, with less mystery</text>
+  <text x="112" y="160" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="18">explicit services give native-image a smaller surface to close over</text>
+
+  <rect x="112" y="218" width="298" height="226" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="140" y="256" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">Java app shape</text>
+  <rect x="140" y="286" width="220" height="34" rx="6" fill="#162033" stroke="#334155"/>
+  <text x="158" y="309" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">new HttpServer()</text>
+  <rect x="140" y="330" width="220" height="34" rx="6" fill="#162033" stroke="#334155"/>
+  <text x="158" y="353" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">new LogService()</text>
+  <rect x="140" y="374" width="220" height="34" rx="6" fill="#162033" stroke="#334155"/>
+  <text x="158" y="397" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">typed events</text>
+
+  <path d="M410 330H478" stroke="#94A3B8" stroke-width="4" stroke-linecap="butt"/>
+  <path d="M478 318L500 330L478 342Z" fill="#94A3B8"/>
+
+  <rect x="500" y="198" width="272" height="266" rx="12" fill="#162033" stroke="#5799EA"/>
+  <text x="536" y="242" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">native-image</text>
+  <rect x="582" y="280" width="108" height="92" rx="10" fill="#0F172A" stroke="#A6C1EE" stroke-width="3"/>
+  <path d="M604 312H668" stroke="#A6C1EE" stroke-width="4" stroke-linecap="round"/>
+  <path d="M604 336H650" stroke="#A6C1EE" stroke-width="4" stroke-linecap="round"/>
+  <path d="M604 360H632" stroke="#A6C1EE" stroke-width="4" stroke-linecap="round"/>
+  <path d="M690 326L720 326" stroke="#FF69B4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M712 314L732 326L712 338Z" fill="#FF69B4"/>
+  <text x="540" y="416" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">closed world</text>
+  <text x="540" y="440" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">resources + metadata</text>
+
+  <path d="M772 330H838" stroke="#94A3B8" stroke-width="4" stroke-linecap="butt"/>
+  <path d="M838 318L860 330L838 342Z" fill="#94A3B8"/>
+
+  <rect x="860" y="218" width="228" height="226" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="888" y="256" fill="#FF69B4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">native executable</text>
+  <rect x="902" y="290" width="144" height="70" rx="8" fill="#F8FAFC"/>
+  <text x="943" y="334" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">app</text>
+  <text x="894" y="396" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">fast startup</text>
+  <text x="894" y="420" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">small RSS</text>
+
+  <rect x="112" y="490" width="526" height="38" rx="6" fill="#0F172A" stroke="#334155"/>
+  <text x="138" y="515" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">add only the services the application will use</text>
+  <rect x="650" y="490" width="326" height="38" rx="6" fill="#0F172A" stroke="#334155"/>
+  <text x="676" y="515" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">measure the service you deploy</text>
+</svg>

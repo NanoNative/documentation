@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nanoGradient" x1="72" y1="0" x2="1128" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBC2EB"/>
+      <stop offset="1" stop-color="#A6C1EE"/>
+    </linearGradient>
+    <linearGradient id="nanoDarkBg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset=".5" stop-color="#334155"/>
+      <stop offset="1" stop-color="#475569"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#nanoDarkBg)"/>
+  <rect x="72" y="62" width="1056" height="506" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="104" y="92" width="246" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="884" y="544" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
+  <g opacity=".9">
+    <path d="M1062 488L1036 472L1010 488" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1062" cy="488" r="5" fill="#A6C1EE"/>
+    <circle cx="1036" cy="472" r="5" fill="#FF69B4"/>
+    <circle cx="1010" cy="488" r="5" fill="#5799EA"/>
+  </g>
+  <rect x="104" y="96" width="992" height="56" rx="8" fill="#0F172A"/>
+  <text x="132" y="132" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Nano Developer Console</text>
+  <text x="846" y="132" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">/dev-console/ui</text>
+
+  <rect x="104" y="188" width="300" height="282" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="132" y="226" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">events</text>
+  <text x="132" y="270" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">EVENT_HTTP_REQUEST</text>
+  <text x="132" y="304" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">EVENT_CONFIG_CHANGE</text>
+  <text x="132" y="338" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">service.started</text>
+  <text x="132" y="372" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">metric.updated</text>
+
+  <rect x="450" y="188" width="300" height="126" rx="10" fill="#162033" stroke="#5799EA"/>
+  <text x="478" y="226" fill="#F8FAFC" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">runtime metrics</text>
+  <path d="M484 276L528 252L572 266L616 232L660 244L706 218" stroke="#A6C1EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="450" y="344" width="300" height="126" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="478" y="382" fill="#FF69B4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">config</text>
+  <text x="478" y="424" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">log_level=INFO</text>
+  <text x="478" y="450" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">service_http_port=8080</text>
+
+  <rect x="796" y="188" width="300" height="282" rx="10" fill="#0F172A" stroke="#334155"/>
+  <text x="824" y="226" fill="#A6C1EE" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">services</text>
+  <circle cx="840" cy="272" r="6" fill="#22C55E"/>
+  <text x="862" y="278" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">HttpServer</text>
+  <circle cx="840" cy="314" r="6" fill="#22C55E"/>
+  <text x="862" y="320" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">DevConsoleService</text>
+  <circle cx="840" cy="356" r="6" fill="#22C55E"/>
+  <text x="862" y="362" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">MyAppService</text>
+
+  <rect x="104" y="506" width="992" height="34" rx="6" fill="#0F172A" stroke="#334155"/>
+  <text x="132" y="529" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">local observability: events | logs | metrics | runtime config | services</text>
+</svg>

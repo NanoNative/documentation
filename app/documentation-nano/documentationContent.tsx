@@ -6,7 +6,10 @@ import nano_events from "@/public/images/conponents/events.jpg";
 import nano_logger from "@/public/images/conponents/logger.jpg";
 import nano_schedulers from "@/public/images/conponents/schedulers.jpg";
 import nano_services from "@/public/images/conponents/services.jpg";
+import { externalLinks } from "@/constants/links";
 
+const NANO_VERSION = "2026.01.0120644";
+const DEV_CONSOLE_VERSION = "2025.12.3611243";
 
 const documentation_subtopic_content: { [key: string]: JSX.Element } = {
     introduction: (
@@ -15,13 +18,13 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <br/>
             <h2 className="text-1xl font-bold mb-4">Back to basics and forget about frameworks!</h2>
             <p>Nano is a lightweight concept which makes it easier for developers to write microservices in functional,
-                fluent,
-                chaining, plain, modern Java with a nano footprint. Nano is also designed to be fully compilable with
-                &nbsp;<a className="nano-link" href="https://www.graalvm.org/" target="_blank"
-                         rel="noopener noreferrer">GraalVM</a> to create native executables. To enhance efficiency and performance, Nano utilizes non-blocking virtual
-                threads from
-                &nbsp;<a className="nano-link" href="https://jdk.java.net/loom/" target="_blank"
-                         rel="noopener noreferrer">Project Loom</a>.
+                fluent, chaining, plain, modern Java with a nano footprint. Nano is also designed to be fully compilable
+                with &nbsp;<a className="nano-link" href="https://www.graalvm.org/" target="_blank"
+                              rel="noopener noreferrer">GraalVM</a> to create native executables. To enhance efficiency
+                and performance, Nano utilizes non-blocking virtual threads from &nbsp;<a className="nano-link"
+                                                                                         href="https://openjdk.org/projects/loom/"
+                                                                                         target="_blank"
+                                                                                         rel="noopener noreferrer">Project Loom</a>.
             </p>
         </div>
     ),
@@ -47,6 +50,10 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
     'getting-started': (
         <div id="getting-started">
             <h1 className="text-2xl font-bold mb-4">Getting Started</h1>
+            <p>Nano targets Java 21+ and is published as <span
+                className="bg-gray-200 px-1 rounded">org.nanonative:nano</span>. The snippets below use the latest
+                released version as of September 2026, <span
+                    className="bg-gray-200 px-1 rounded">{NANO_VERSION}</span>.</p>
         </div>
     ),
     configuration: (
@@ -64,9 +71,13 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
     'core-concept': (
         <div id="core-concept">
             <h1 className="text-2xl font-bold mb-4">Core Concept</h1>
-            <p>Nano handles threads for you and provides a basic construct for event-driven architecture.
-                It's providing a simple way to write microservices in a functional fluent and chaining style.
-                Objects are less needed thanks to the underlying &nbsp;<a className="nano-link"
+            <p>Nano provides the basic building blocks for event-driven Java services: a <span
+                className="bg-gray-200 px-1 rounded">Context</span>, typed <span
+                className="bg-gray-200 px-1 rounded">Events</span>, managed <span
+                className="bg-gray-200 px-1 rounded">Schedulers</span> and pluggable <span
+                className="bg-gray-200 px-1 rounded">Services</span>. Business logic is commonly written as static
+                listeners that react to events, while services connect to external systems such as HTTP, metrics,
+                logging, files, queues or databases. Objects are less needed thanks to the underlying &nbsp;<a className="nano-link"
                                                                           href="https://github.com/YunaBraska/type-map"
                                                                           target="_blank"
                                                                           rel="noopener noreferrer">TypeMap</a>. Nano
@@ -77,9 +88,9 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
     concept: (
         <div id="concept">
             <br/><br/>
-            <p>Nano is a minimalist standalone library designed to facilitate the creation of microservices
-                using plain, modern Java. Nano is a tool, not a framework, and it emphasizes simplicity,
-                security, and efficiency.</p>
+            <p>Nano is a minimalist standalone library for plain, modern Java. It is a tool, not a framework:
+                it avoids annotation-heavy object hierarchies and keeps control in explicit event handlers,
+                services, configuration and typed data conversion.</p>
         </div>
     ),
     'modern-and-fluent-design': (
@@ -99,10 +110,11 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
     'no-external-dependencies': (
         <div id="no-external-dependencies">
             <br/><br/>
-            <h1 className="text-2xl font-bold mb-4">No External Dependencies 🔒</h1>
-            <p>Nano is built without any foreign dependencies, ensuring a lean, secure library free from common
-                vulnerabilities and excessive dependencies. This results in a smaller, faster, and more secure codebase.
-                You only need to trust and know the license agreements of Nano.</p>
+            <h1 className="text-2xl font-bold mb-4">Minimal Dependencies 🔒</h1>
+            <p>Nano keeps its dependency surface intentionally small. The core artifact currently depends on
+                <a className="nano-link" href="https://github.com/YunaBraska/type-map" target="_blank"
+                   rel="noopener noreferrer"> TypeMap</a> for typed data conversion and transformation, while
+                optional capabilities are exposed through explicit services and companion projects.</p>
         </div>
     ),
     'minimal-resource-consumption': (
@@ -118,10 +130,10 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <br/><br/>
             <h1 className="text-2xl font-bold mb-4">Non-Blocking Virtual Threads 🧵</h1>
             <p>Nano utilizes non-blocking virtual threads from <a className="nano-link"
-                                                                  href="https://jdk.java.net/loom/" target="_blank"
+                                                                  href="https://openjdk.org/projects/loom/" target="_blank"
                                                                   rel="noopener noreferrer">Project Loom</a> to enhance
                 efficiency and performance.
-                These threads maximize CPU utilization without blocking the main thread, eliminating the need for
+                Virtual threads help Nano handle concurrent workloads with a simpler programming model, eliminating the need for
                 manual thread limit settings. Note that Nano cannot control Java’s built-in <span
                     className="bg-gray-200 px-1 rounded">ForkJoinPool</span> used for
                 <span className="bg-gray-200 px-1 rounded">java.util.concurrent</span> objects like streams. To optimize
@@ -140,7 +152,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 compile native executables that do not require a JVM to run.
                 This feature is particularly useful in containerized and serverless environments. Nano avoids reflection
                 and dynamic
-                class loading, ensuring seamless <a className="nano-link" href="https://www.graalvm.org/"
+                class loading where possible, supporting <a className="nano-link" href="https://www.graalvm.org/"
                                                     target="_blank" rel="noopener noreferrer">GraalVM</a> integration
                 without additional configuration.</p>
         </div>
@@ -163,12 +175,13 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <br/><br/>
             <h1 className="text-2xl font-bold mb-4">Modular Design 🧩</h1>
             <p>Nano’s <span className="bg-gray-200 px-1 rounded">Event</span> system enables decoupling of functions,
-                plugin creation (<span className="bg-gray-200 px-1 rounded">Services</span>), and function interception.
+                plugin creation (<span className="bg-gray-200 px-1 rounded">Services</span>) and function interception.
                 For example, you can globally control and respond to every error that occurs, similar to a global <span
                     className="bg-gray-200 px-1 rounded">Controller Advice</span>.
                 With that its also easy to change configurations on the fly. This modular design allows services, such
                 as the built-in
-                <span className="bg-gray-200 px-1 rounded">HttpService</span> and <span
+                <span className="bg-gray-200 px-1 rounded">HttpServer</span>, <span
+                    className="bg-gray-200 px-1 rounded">HttpClient</span>, <span
                     className="bg-gray-200 px-1 rounded">MetricService</span>, to operate independently while still
                 being able to interact when started.</p>
         </div>
@@ -181,7 +194,12 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 executed only when explicitly added to Nano programmatically.
                 This approach simplifies testing, as services and components can be tested independently without the
                 need for mocking or stubbing.
-                You execute only what you define, avoiding the pitfalls of auto-applying dependencies.</p>
+                Current built-in services include <span className="bg-gray-200 px-1 rounded">HttpServer</span>,
+                <span className="bg-gray-200 px-1 rounded"> HttpClient</span>,
+                <span className="bg-gray-200 px-1 rounded"> MetricService</span>,
+                <span className="bg-gray-200 px-1 rounded"> LogService</span>, and
+                <span className="bg-gray-200 px-1 rounded"> FileWatcher</span>. You execute only what you define,
+                avoiding the pitfalls of auto-applying dependencies.</p>
         </div>
     ),
     'flexible-object-mapping': (
@@ -232,7 +250,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <p>Error handling is pretty straight forward in Nano. All errors are
                 <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/events/README.md"
                    target="_blank" rel="noopener noreferrer"> Events</a> which are logged automatically with the
-                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/logger/README.md"
+                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/logger/README.md"
                    target="_blank" rel="noopener noreferrer"> Logger</a> from the caller
                 <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/context/README.md"
                    target="_blank" rel="noopener noreferrer"> Context</a>. These
@@ -281,7 +299,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
 
             <br/><br/>
             <h1 className="text-2xl font-bold mb-4">Registers <span className="text-base">(ConfigRegister, TypeConversionRegister,
-                LogFormatRegister, EventChannelRegister)</span></h1>
+                LogFormatRegister)</span></h1>
 
             <p>Nano comes with a set of registers that are used to add custom functionality to internal components.
                 It's recommended to use the register in <span className="bg-gray-200 px-1 rounded">static</span>
@@ -320,43 +338,19 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                   </pre>
 
             <br/>
-            <h1 className="text-2xl font-bold mb-4">EventChannelRegister:</h1>
-            <p>The <span className="bg-gray-200 px-1 rounded">EventChannelRegister</span> is used to register custom
+            <h1 className="text-2xl font-bold mb-4">Channels:</h1>
+            <p>Channels identify where
                 <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/events/README.md"
-                   target="_blank" rel="noopener noreferrer"> Events</a> channels to send or subscribe <a
-                    className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/events/README.md"
-                    target="_blank" rel="noopener noreferrer"> events</a> to.
-                the registration is needed to create unique channel ids for the
-                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/events/README.md"
-                   target="_blank" rel="noopener noreferrer"> Events</a> bus. These ids are faster than
-                using <span className="bg-gray-200 px-1 rounded">String</span> ids </p>
-
-            <br/>
-            <h1 className="text-base font-bold mb-4">Usage:</h1>
-            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
-                <code className="language-java">
-                      {`    static {
-        // Register a channel
-        int MY_EVENT_CHANNEL_ID = EventChannelRegister.registerChannelId("my_channel_name");
-    
-        // Getting a channel name by id
-        String myChanelName = EventChannelRegister.eventNameOf(MY_EVENT_CHANNEL_ID);
-    
-        // Getting a channelId by name
-        int MY_EVENT_CHANNEL_ID = EventChannelRegister.eventIdOf("my_channel_name");
-    
-        // checking if a channel is registered
-        boolean isChannelAvailable = ConfigRegister.isChannelIdAvailable("my_config_key");
-    }
-                  `}
-                    </code>
-                  </pre>
+                   target="_blank" rel="noopener noreferrer"> Events</a> are sent, subscribed to and replied from.
+                Current channel behavior is part of the event model. See <a className="nano-link"
+                    href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/model/Channel.java"
+                    target="_blank" rel="noopener noreferrer">Channel.java</a>.</p>
             <br/>
             <h1 className="text-2xl font-bold mb-4">LogFormatRegister</h1>
             <p>This register is used to register custom log formats. Default formats are
                 <span className="bg-gray-200 px-1 rounded">console</span> and
                 <span className="bg-gray-200 px-1 rounded">json</span>. The
-                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/logger/README.md"
+                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/logger/README.md"
                    target="_blank" rel="noopener noreferrer">Logger</a>
                 is still under construction. The functionality might change in the future. Simply use the default
                 log Formatter interface of java <span
@@ -380,7 +374,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <h1 className="text-2xl font-bold mb-4">TypeConversionRegister</h1>
             <p>The <span className="bg-gray-200 px-1 rounded">TypeConversionRegister</span> is used to register custom
                 type converters. It's the core of Nano.
-                These type conversion are used in the Config/Context, Event Cache, HttpService request &
+                These type conversion are used in the Config/Context, Event Cache, HttpServer request &
                 responses and everything which uses <span className="bg-gray-200 px-1 rounded">TypeMap</span>,
                 <span className="bg-gray-200 px-1 rounded">TypeList</span> or <span
                     className="bg-gray-200 px-1 rounded">TypeInfo</span>.
@@ -704,7 +698,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                     <td className="border border-gray-300 px-4 py-2">0</td>
                     <td className="border border-gray-300 px-4 py-2">Property Files</td>
                     <td className="border border-gray-300 px-4 py-2">application.properties config files, automatically
-                        loaded from config, resources, and resources/config
+                        loaded from config, resources and resources/config
                     </td>
                 </tr>
                 <tr>
@@ -753,7 +747,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 Profiles define different configurations for environments, set using the <span
                 className="bg-gray-200 px-1 rounded">app_profiles</span> property. It’s compatible with <span
                 className="bg-gray-200 px-1 rounded">spring.profiles.active</span>, <span
-                className="bg-gray-200 px-1 rounded">quarkus.profile</span>, and <span
+                className="bg-gray-200 px-1 rounded">quarkus.profile</span> and <span
                 className="bg-gray-200 px-1 rounded">micronaut.profiles</span>. The application will load the
                 corresponding <span
                 className="bg-gray-200 px-1 rounded">application-{'{profile}'}.properties</span> file if available.
@@ -827,7 +821,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                     <td className="border border-gray-300 px-4 py-2">app_log_queue_size</td>
                     <td className="border border-gray-300 px-4 py-2">String</td>
                     <td className="border border-gray-300 px-4 py-2">Log queue size. Full queue means logs wait to be
-                        executed (when using LogQueue Service)
+                        executed (when using LogService)
                     </td>
                 </tr>
                 <tr>
@@ -989,16 +983,13 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             </div>
             <br/><br/>
             <h1 className="text-base font-bold mb-4">ChannelIds</h1>
-            <p>ChannelIds are globally unique IDs to identify the correct channel to send events into. They can be
-                registered
-                once with <code><span
-                    className="bg-gray-200 px-1 rounded">ChannelIdRegister.registerChannelId("MY_EVENT_NAME")</span></code>.
-                See <a className="nano-link"
-                       href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/EventChannelRegister.java"
-                       target="_blank" rel="noopener noreferrer">EventChannelRegister.java</a> and <a
+            <p>Channels identify where events are sent, subscribed to and replied from. Current channel and event
+                behavior is implemented through the event model classes. See <a className="nano-link"
+                       href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/model/Channel.java"
+                       target="_blank" rel="noopener noreferrer">Channel.java</a> and <a
                     className="nano-link"
-                    href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/model/EventChannel.java"
-                    target="_blank" rel="noopener noreferrer">DefaultEventChannel</a>.
+                    href="https://github.com/NanoNative/nano/blob/main/src/main/java/org/nanonative/nano/helper/event/model/Event.java"
+                    target="_blank" rel="noopener noreferrer">Event.java</a>.
             </p>
 
             <br/>
@@ -1211,13 +1202,13 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                 where <code>Formatter</code> is a Java <code>java.util.logging.Formatter</code>.</p>
 
             <br/>
-            <h1 className="text-base font-bold mb-4">Log Queue</h1>
-            <p>The <a className="nano-link" href="#nano-logger">Logger</a> supports a <b>LogQueue</b>, which can be used
+            <h1 className="text-base font-bold mb-4">Log Service</h1>
+            <p>The <a className="nano-link" href="#nano-logger">Logger</a> supports a <b>LogService</b>, which can be used
                 to prevent the main thread from being blocked
                 when
-                logging. Nano comes with a default LogQueue Service that can be added like any other services:</p>
+                logging. Nano comes with a default LogService that can be added like any other service:</p>
             <pre className="bg-gray-100 p-2 rounded">
-        <code>new Nano(new LogQueue())</code>
+        <code>new Nano(new LogService())</code>
     </pre>
         </div>
     ),
@@ -1262,9 +1253,11 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <p>Services are extensions for Nano, acting as independently managed programs that run in the background.
                 They are typically designed to be accessed by <a className="nano-link" href="#nano-events">Events</a>.
                 Nano provides default Services such as
-                <span className="bg-gray-200 px-1 rounded">HttpService</span>, <span
-                    className="bg-gray-200 px-1 rounded">MetricService</span>,
-                and <span className="bg-gray-200 px-1 rounded">LogQueue</span>.</p>
+                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/httpserver/README.md" target="_blank" rel="noopener noreferrer"> HttpServer</a>,
+                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/httpclient/README.md" target="_blank" rel="noopener noreferrer"> HttpClient</a>,
+                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/metricservice/README.md" target="_blank" rel="noopener noreferrer"> MetricService</a>,
+                <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/logger/README.md" target="_blank" rel="noopener noreferrer"> LogService</a>,
+                and <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/filewatcher/README.md" target="_blank" rel="noopener noreferrer"> FileWatcher</a>.</p>
 
             <br/>
             <div
@@ -1282,13 +1275,13 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <ul className="list-disc pl-5">
                 <li>
                     <b>Start Services with Nano Startup:</b><br/>
-                    <span className="bg-gray-200 px-1 rounded">new Nano(new HttpService(), new MetricService(), new LogQueue())</span><br/>
+                    <span className="bg-gray-200 px-1 rounded">new Nano(new HttpServer(), new HttpClient(), new MetricService(), new LogService())</span><br/>
                     <span>Services will start automatically when Nano starts.</span>
                 </li>
                 <li>
                     <b>Start a Service Manually:</b><br/>
-                    <span className="bg-gray-200 px-1 rounded">context.run(new HttpService())</span><br/>
-                    <span>This will start the <code>HttpService</code> manually.</span>
+                    <span className="bg-gray-200 px-1 rounded">context.run(new HttpServer())</span><br/>
+                    <span>This will start the <code>HttpServer</code> manually.</span>
                 </li>
             </ul>
         </div>
@@ -1303,7 +1296,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                   {`    <dependency>
         <groupId>org.nanonative</groupId>
         <artifactId>nano</artifactId>
-        <version>1.0.0</version>
+        <version>2026.01.0120644</version>
     </dependency>`}
                     </code>
                   </pre>
@@ -1316,28 +1309,31 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
                 <code className="language-java">
                   {`    dependencies {
-        implementation 'org.nanonative:nano:1.0.0'
+        implementation 'org.nanonative:nano:2026.01.0120644'
     }`}
                     </code>
                   </pre>
 
             <br/>
-            <p className="px-1"> <b>Simple Nano example</b> with <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/httpservice/README.md" target="_blank" rel="noopener noreferrer">HttpService</a> (a default service)</p><br/>
+            <p className="px-1"> <b>Simple Nano example</b> with <a className="nano-link" href="https://github.com/NanoNative/nano/blob/main/docs/services/httpserver/README.md" target="_blank" rel="noopener noreferrer">HttpServer</a> (a default service)</p><br/>
             <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
                 <code className="language-java">
                   {`public static void main(final String[] args) {
-    // Start Nano with HttpService
-    final Nano app = new Nano(args, new HttpService());
+    // Start Nano with HttpServer
+    final Nano app = new Nano(args, new HttpServer());
 
     // listen to /hello
-    app.subscribeEvent(EVENT_HTTP_REQUEST, event -> event.payloadOpt(HttpObject.class)
+    app.subscribeEvent(EVENT_HTTP_REQUEST, event -> event.payloadOpt()
         .filter(HttpObject::isMethodGet)
         .filter(request -> request.pathMatch("/hello"))
-        .ifPresent(request -> request.response().body(Map.of("Hello", System.getProperty("user.name"))).respond(event)));
+        .ifPresent(request -> request.createResponse().body(Map.of("Hello", System.getProperty("user.name"))).respond(event)));
 
     // Override error handling for HTTP requests
-    app.subscribeEvent(EVENT_APP_UNHANDLED, event -> event.payloadOpt(HttpObject.class).ifPresent(request ->
-        request.response().body("Internal Server Error [" + event.error().getMessage() + "]").statusCode(500).respond(event)));
+    app.subscribeError(EVENT_HTTP_REQUEST, event -> event.payloadAck()
+        .createResponse()
+        .body("Internal Server Error [" + event.error().getMessage() + "]")
+        .statusCode(500)
+        .respond(event));
 }`}
                     </code>
                   </pre>
@@ -1352,37 +1348,204 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
                 <code className="language-java">
                   {`    <profiles>
-        <!-- NATIVE COMPILATION -->
-        <plugin>
-            <groupId>org.graalvm.nativeimage</groupId>
-            <artifactId>native-image-maven-plugin</artifactId>
-            <version>21.2.0</version>
-            <configuration>
-                <imageName>ExampleApp</imageName>
-                <mainClass>de.yuna.berlin.nativeapp.helper.ExampleApp</mainClass>
-                <buildArgs>
-                    <!-- Reduces the image size - Ensures the native image doesn't include the JVM as a fallback option -->
-                    <buildArg>--no-fallback</buildArg>
-                    <!-- Disables the use of the GraalVM compilation server -->
-                    <buildArg>--no-server</buildArg>
-                    <!-- Improve startup time - Initialize classes at build time rather than at runtime -->
-                    <buildArg>--initialize-at-build-time</buildArg>
-                    <!-- Include all files under /resources -->
-                    <buildArg>-H:IncludeResources=resources/config/.*</buildArg>
-                </buildArgs>
-            </configuration>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>native-image</goal>
-                    </goals>
-                    <phase>package</phase>
-                </execution>
-            </executions>
-        </plugin>
+        <profile>
+            <!-- NATIVE COMPILATION -->
+            <id>native-image</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.graalvm.buildtools</groupId>
+                        <artifactId>native-maven-plugin</artifactId>
+                        <version>1.1.14</version>
+                        <executions>
+                            <execution>
+                                <id>build-native</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>generateResourceConfig</goal>
+                                    <goal>compile-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <imageName>ExampleApp</imageName>
+                            <mainClass>de.yuna.berlin.nativeapp.helper.ExampleApp</mainClass>
+                            <!-- Reduces the image size - Ensures the native image doesn't include the JVM as a fallback option -->
+                            <fallback>false</fallback>
+                            <buildArgs>
+                                <!-- Improve startup time - Initialize classes at build time rather than at runtime -->
+                                <buildArg>--initialize-at-build-time</buildArg>
+                            </buildArgs>
+                            <!-- Include application resources in the native image -->
+                            <resourceIncludedPatterns>
+                                <pattern>resources/config/.*</pattern>
+                            </resourceIncludedPatterns>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>`}
                     </code>
                   </pre>
+        </div>
+    ),
+    'observability': (
+        <div id="observability">
+            <h1 className="text-2xl font-bold mb-4">Observability</h1>
+            <p>Nano applications can expose runtime data through services. The first tool in this area is
+                the <a className="nano-link" href={externalLinks.devConsoleRepo} target="_blank"
+                       rel="noopener noreferrer">Nano Developer Console</a>, a service for inspecting events, logs,
+                runtime metrics, configuration and service state from a local HTTP UI.</p>
+        </div>
+    ),
+    'developer-console': (
+        <div id="developer-console">
+            <br/><br/>
+            <h1 className="text-2xl font-bold mb-4">Developer Console</h1>
+            <p>The Developer Console is a Nano service that provides a local HTTP UI and JSON endpoints for a running
+                Nano application. It is intended for development and test environments by default.</p>
+            <ul className="list-disc pl-5">
+                <li className="mb-2">Live event stream with pause and export.</li>
+                <li className="mb-2">Live logs with pause and export.</li>
+                <li className="mb-2">System snapshot including PID, heap usage, CPU usage, threads and services.</li>
+                <li className="mb-2">Runtime configuration updates through the Config panel.</li>
+                <li className="mb-2">Service start and stop controls when service indexing is configured.</li>
+            </ul>
+        </div>
+    ),
+    'developer-console-setup': (
+        <div id="developer-console-setup">
+            <br/>
+            <h1 className="text-2xl font-bold mb-4">Setup</h1>
+            <p>Add the Developer Console dependency to your Nano application.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    <dependency>
+        <groupId>org.nanonative</groupId>
+        <artifactId>devconsole</artifactId>
+        <version>${DEV_CONSOLE_VERSION}</version>
+    </dependency>`}
+                    </code>
+                  </pre>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Start with Nano</h1>
+            <p>Add <span className="bg-gray-200 px-1 rounded">DevConsoleService</span> alongside your Nano services.
+                The UI is mounted under <span className="bg-gray-200 px-1 rounded">/dev-console/ui</span> by default.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    Nano nano = new Nano(Map.of(
+        CONFIG_SERVICE_HTTP_PORT, "8080"
+    ), new DevConsoleService(), new HttpServer(), new MyAppService());`}
+                    </code>
+                  </pre>
+            <div className="my-4 rounded-lg border border-blue-200 bg-blue-50 p-4">
+                <p className="font-semibold text-gray-900">Open the Developer Console after the application starts: <span
+                    className="bg-gray-200 px-1 rounded">http://localhost:8080/dev-console/ui</span></p>
+            </div>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">Service indexing</h1>
+            <p>To let the Developer Console discover Nano services that can be started from the UI, add the service
+                indexing plugin to the application POM.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    <plugin>
+        <groupId>io.github.absketches</groupId>
+        <artifactId>codegen-concrete-classes-maven-plugin</artifactId>
+        <version>2025.11.3280300</version>
+        <executions>
+            <execution>
+                <id>nano-service-index</id>
+                <phase>process-classes</phase>
+                <goals>
+                    <goal>generate</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>`}
+                    </code>
+                  </pre>
+
+            <br/>
+            <h1 className="text-base font-bold mb-4">GraalVM resources</h1>
+            <p>For native image builds, include the Developer Console service descriptor as a native image resource.</p>
+            <pre className="text-sm bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+                <code className="language-java">
+                  {`    <plugin>
+        <groupId>org.graalvm.buildtools</groupId>
+        <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+            <resourceIncludedPatterns>
+                <pattern>META-INF/io/github/absketches/plugin/services.properties</pattern>
+            </resourceIncludedPatterns>
+        </configuration>
+        <executions>
+            <execution>
+                <id>build-native</id>
+                <phase>package</phase>
+                <goals>
+                    <goal>generateResourceConfig</goal>
+                    <goal>compile-no-fork</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>`}
+                    </code>
+                  </pre>
+        </div>
+    ),
+    'developer-console-configuration': (
+        <div id="developer-console-configuration">
+            <br/>
+            <h1 className="text-2xl font-bold mb-4">Configuration</h1>
+            <table className="table-auto border-collapse border border-gray-300 mb-4 w-full">
+                <thead>
+                <tr className="bg-gray-200">
+                    <th className="border border-gray-300 px-4 py-2">Key</th>
+                    <th className="border border-gray-300 px-4 py-2">Default</th>
+                    <th className="border border-gray-300 px-4 py-2">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_max_events</td>
+                    <td className="border border-gray-300 px-4 py-2">1000</td>
+                    <td className="border border-gray-300 px-4 py-2">Max events retained in memory.</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_max_logs</td>
+                    <td className="border border-gray-300 px-4 py-2">1000</td>
+                    <td className="border border-gray-300 px-4 py-2">Max logs retained in memory.</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_url</td>
+                    <td className="border border-gray-300 px-4 py-2">/ui</td>
+                    <td className="border border-gray-300 px-4 py-2">UI mounted under /dev-console.</td>
+                </tr>
+                <tr>
+                    <td className="border border-gray-300 px-4 py-2">dev_console_svc_file</td>
+                    <td className="border border-gray-300 px-4 py-2">services.properties</td>
+                    <td className="border border-gray-300 px-4 py-2">Generated service index file name.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    ),
+    'developer-console-endpoints': (
+        <div id="developer-console-endpoints">
+            <br/>
+            <h1 className="text-2xl font-bold mb-4">Endpoints</h1>
+            <p>The Developer Console is mounted under <span className="bg-gray-200 px-1 rounded">/dev-console</span>.</p>
+            <ul className="list-disc pl-5">
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">GET /dev-console/system-info</span> - system and JVM snapshot.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">GET /dev-console/events</span> - recent events.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">GET /dev-console/logs</span> - recent logs.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">PATCH /dev-console/config</span> - update runtime config.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">PATCH /dev-console/service/{'{serviceName}'}</span> - start a service.</li>
+                <li className="mb-2"><span className="bg-gray-200 px-1 rounded">DELETE /dev-console/service/{'{serviceName}'}</span> - stop a service.</li>
+            </ul>
         </div>
     ),
     'benefits-of-nano': (
@@ -1390,7 +1553,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <h1 className="text-2xl font-bold mb-4">✨ Benefits of Nano</h1>
             <ul className="list-disc pl-5">
                 <li className="mb-2">🧩 Modular Design: Nano's architecture is modular, making it easy to understand,
-                    extend, and maintain.
+                    extend and maintain.
                 </li>
                 <li className="mb-2">🧵 Concurrency Management: Efficiently handle asynchronous tasks using advanced
                     thread management.
@@ -1399,10 +1562,10 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
                     between different parts of your application.
                 </li>
                 <li className="mb-2">⚙️ Flexible Configuration: Configure your application using environment variables,
-                    system properties, or command-line arguments.
+                    system properties or command-line arguments.
                 </li>
-                <li className="mb-2">📊 Robust Logging and Error Handling: Integrated logging and comprehensive error
-                    handling mechanisms for reliable operation.
+                <li className="mb-2">📊 Logging and Error Handling: Integrated logging and error handling for reliable
+                    operation.
                 </li>
                 <li className="mb-2">🚀 Scalable and Performant: Designed with scalability and performance in mind to
                     handle high-concurrency scenarios.
@@ -1444,7 +1607,7 @@ const documentation_subtopic_content: { [key: string]: JSX.Element } = {
             <br/>
             <h1 className="text-2xl font-bold mb-4">🙋‍ Support</h1>
             <p>If you encounter any issues or have questions, please file an issue <a className="nano-link"
-                                                                                      href="https://github.com/nanonative/nano/issues/new/choose"
+                                                                                      href={externalLinks.nanoIssues}
                                                                                       target="_blank"
                                                                                       rel="noopener noreferrer">here</a>.
             </p>

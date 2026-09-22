@@ -1,7 +1,7 @@
 import "./css/style.css";
 
 import { Inter } from "next/font/google";
-import NanoBanner from "@/public/images/NanoBanner.svg";
+import { externalLinks, socialImages } from "@/constants/links";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,12 +10,11 @@ const inter = Inter({
 });
 
 export const metadata = {
-    metadataBase: new URL("https://nanonative.org"),
+    metadataBase: new URL(externalLinks.site),
     title: 'Nano Documentation',
     description: 'Documentation for the Nano framework, covering core concepts, mechanics, and getting started guides.',
     keywords: "NanoNative, microservices, lightweight, Java, GraalVM, Project Loom, virtual threads, native executables",
     robots: "index, follow",
-    // viewport: "width=device-width, initial-scale=1.0",
     authors: [
         { "name": "NanoNative Team" },
         { "name": "Yuna Braska" }
@@ -23,15 +22,15 @@ export const metadata = {
     openGraph: {
         title: "NanoNative - Simplify Microservices with Lightweight Java Solutions",
         description: "NanoNative enables effortless microservice development with modern Java, optimized for native executables.",
-        url: "https://nanonative.org/",
+        url: externalLinks.site,
         type: "website",
-        images: NanoBanner,
+        images: [socialImages.openGraph],
     },
     twitter: {
         card: "summary_large_image",
         title: "NanoNative - Simplify Microservices with Lightweight Java Solutions",
         description: "NanoNative enables effortless microservice development with modern Java, optimized for native executables.",
-        images: NanoBanner,  // Replace with your actual image path
+        images: [socialImages.twitter],
     }
 };
 

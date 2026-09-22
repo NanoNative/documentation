@@ -3,6 +3,7 @@ import yunaImg from "@/public/images/yuna.jpeg";
 import kazimImg from "@/public/images/kazim.jpeg";
 import abhiroopImg from "@/public/images/abhiroop-profile.webp";
 import Link from "next/link";
+import { externalLinks } from "@/constants/links";
 
 export default function LargeTestimonial() {
   return (
@@ -37,7 +38,7 @@ export default function LargeTestimonial() {
                           <li>
                               <Link
                                   className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                  href="https://x.com/YunaMorgenstern"
+                                  href={externalLinks.xYuna}
                                   target="_blank" rel="noopener noreferrer"
                                   aria-label="Twitter"
                               >
@@ -54,7 +55,7 @@ export default function LargeTestimonial() {
                           <li>
                               <Link
                                   className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                  href="https://www.linkedin.com/in/yuna-morgenstern-6662a5145/"
+                                  href={externalLinks.linkedinYuna}
                                   target="_blank" rel="noopener noreferrer"
                                   aria-label="LinkedIn"
                               >
@@ -71,7 +72,7 @@ export default function LargeTestimonial() {
                           <li>
                               <Link
                                   className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                  href="https://github.com/YunaBraska" target="_blank"
+                                  href={externalLinks.githubYuna} target="_blank"
                                   rel="noreferrer"
                                   aria-label="Github"
                               >
@@ -107,7 +108,7 @@ export default function LargeTestimonial() {
                             <li>
                                 <Link
                                     className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                    href="https://x.com/Ali_Kazim1101"
+                                    href={externalLinks.xKazim}
                                     target="_blank" rel="noopener noreferrer"
                                     aria-label="Twitter"
                                 >
@@ -124,7 +125,7 @@ export default function LargeTestimonial() {
                             <li>
                                 <Link
                                     className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                    href="https://www.linkedin.com/in/kazim-ali-52924015b/"
+                                    href={externalLinks.linkedinKazim}
                                     target="_blank" rel="noopener noreferrer"
                                     aria-label="LinkedIn"
                                 >
@@ -141,7 +142,7 @@ export default function LargeTestimonial() {
                             <li>
                                 <Link
                                     className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                    href="https://github.com/kazim1101" target="_blank"
+                                    href={externalLinks.githubKazim} target="_blank"
                                     rel="noreferrer"
                                     aria-label="Github"
                                 >
@@ -175,7 +176,7 @@ export default function LargeTestimonial() {
                             <li>
                                 <Link
                                     className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                    href="https://ab.basuabhi92.workers.dev/"
+                                    href={externalLinks.websiteAbhiroop}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Website"
@@ -192,7 +193,7 @@ export default function LargeTestimonial() {
                             <li>
                                 <Link
                                     className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                    href="https://linkedin.com/in/basuabhiroop/"
+                                    href={externalLinks.linkedinAbhiroop}
                                     target="_blank" rel="noopener noreferrer"
                                     aria-label="LinkedIn"
                                 >
@@ -209,7 +210,7 @@ export default function LargeTestimonial() {
                             <li>
                                 <Link
                                     className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
-                                    href="https://github.com/absketches/"
+                                    href={externalLinks.githubAbhiroop}
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label="Github"

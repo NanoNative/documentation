@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NanoBanner from "@/public/images/NanoBanner.svg";
+import { externalLinks } from "@/constants/links";
 
 
 export default function NanoHome() {
@@ -51,7 +52,7 @@ export default function NanoHome() {
                 >
                   <a
                       className="btn group mb-4 w-full bg-[length:100%_100%] bg-[bottom] text-white shadow hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto  bg-gradient-to-r from-nanoPink to-nanoBlue"
-                      href="https://github.com/NanoNative/nano/blob/main/README.md"
+                      href={externalLinks.nanoReadme}
                       target="_blank"
                       rel="noopener noreferrer"
                   >
@@ -82,7 +83,7 @@ export default function NanoHome() {
 
                   <div className="text-7xl font-extrabold ...">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-nanoPink to-nanoBlue">
-                    <a href="https://github.com/NanoNative/nano" target="_blank"
+                    <a href={externalLinks.nanoRepo} target="_blank"
                        rel="noopener noreferrer">
                     <br/> &#123; Nano... &#125;
                       </a>
