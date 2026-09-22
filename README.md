@@ -15,3 +15,10 @@ To add a post:
 4. Import the post in `content/blog/posts.ts` and add it to `blogPosts`.
 
 The blog index orders posts by newest date first.
+
+## Visual language
+
+The [NanoNative visual language](docs/specs/nano-visual-language.md) defines
+portable brand, color, typography, layout, and mascot rules for interfaces,
+documentation, blogs, and social media. It includes light/dark role mappings,
+a character reference, and links to the design ADR and application skill.
