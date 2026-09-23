@@ -11,7 +11,7 @@ export const metadata = {
     openGraph: {
         title: "NanoNative Blog",
         description: "Technical articles, release notes and engineering notes from NanoNative.",
-        url: `${externalLinks.site}${siteLinks.blog.slice(1)}`,
+        url: `${externalLinks.site}${siteLinks.blog.slice(1)}/`,
         type: "website",
         images: [socialImages.openGraph],
     },
@@ -49,7 +49,7 @@ export default function BlogPage() {
                                 key={post.slug}
                                 className="group"
                             >
-                                <Link href={`${siteLinks.blog}/${post.slug}`} className="block">
+                                <Link href={`${siteLinks.blog}/${post.slug}/`} className="block">
                                     <div className="nano-dark-bg relative aspect-[16/9] overflow-hidden rounded">
                                         <Image
                                             src={post.coverImage}

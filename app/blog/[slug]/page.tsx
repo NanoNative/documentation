@@ -39,7 +39,7 @@ export function generateMetadata({ params }: BlogPostPageProps) {
         openGraph: {
             title: post.title,
             description: post.description,
-            url: `${externalLinks.site}${siteLinks.blog.slice(1)}/${post.slug}`,
+            url: `${externalLinks.site}${siteLinks.blog.slice(1)}/${post.slug}/`,
             type: "article",
             images: [postImage],
         },
@@ -67,7 +67,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         notFound();
     }
 
-    const postUrl = `${externalLinks.site}${siteLinks.blog.slice(1)}/${post.slug}`;
+    const postUrl = `${externalLinks.site}${siteLinks.blog.slice(1)}/${post.slug}/`;
 
     return (
         <>
