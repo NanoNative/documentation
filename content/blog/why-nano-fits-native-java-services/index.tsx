@@ -9,7 +9,7 @@ const post: BlogPost = {
     date: "2026-09-19",
     author: "NanoNative Team",
     tags: ["Nano", "GraalVM", "Native Java"],
-    readingTime: "5 min read",
+    readingTime: "3 min read",
     coverImage,
     coverAlt: "Native image build surface for a Nano service",
     content: (

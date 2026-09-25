@@ -1,3 +1,4 @@
+import isDxMovingAwayFromCode from "./is-dx-moving-away-from-code";
 import devConsoleObservability from "./nano-developer-console-observability";
 import changingRuntimeConfig from "./changing-nano-configuration-at-runtime";
 import orchestrationToChoreography from "./from-orchestration-to-choreography";
@@ -7,6 +8,7 @@ import railwayApplicationPath from "./railway-oriented-programming";
 import type { BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+    isDxMovingAwayFromCode,
     railwayApplicationPath,
     railixPlayingAGame,
     orchestrationToChoreography,

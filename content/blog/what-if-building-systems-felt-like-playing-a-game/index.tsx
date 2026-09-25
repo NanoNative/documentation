@@ -9,7 +9,7 @@ const post: BlogPost = {
     date: "2026-09-22",
     author: "NanoNative Team",
     tags: ["Railix", "Railway Oriented Programming", "DX"],
-    readingTime: "5 min read",
+    readingTime: "3 min read",
     coverImage,
     coverAlt: "Railix vision poster showing a software flow as connected stations on a track",
     content: (
