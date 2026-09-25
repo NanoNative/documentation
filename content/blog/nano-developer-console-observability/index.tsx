@@ -9,7 +9,7 @@ const post: BlogPost = {
     date: "2026-09-21",
     author: "NanoNative Team",
     tags: ["Observability", "Developer Console", "Nano"],
-    readingTime: "5 min read",
+    readingTime: "3 min read",
     coverImage,
     coverAlt: "Nano Developer Console observability surfaces",
     content: (

@@ -9,7 +9,7 @@ const post: BlogPost = {
     date: "2026-09-20",
     author: "NanoNative Team",
     tags: ["Nano", "Configuration", "Runtime"],
-    readingTime: "5 min read",
+    readingTime: "3 min read",
     coverImage,
     coverAlt: "Configuration update flowing into a running service",
     content: (

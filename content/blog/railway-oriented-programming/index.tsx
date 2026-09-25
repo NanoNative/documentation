@@ -9,7 +9,7 @@ const post: BlogPost = {
     date: "2026-09-23",
     author: "NanoNative Team",
     tags: ["railix", "Railway Oriented Programming", "Architecture"],
-    readingTime: "4 min read",
+    readingTime: "2 min read",
     coverImage,
     coverAlt: "Railix application flow shown as connected steps with visible success and failure routes",
     content: (

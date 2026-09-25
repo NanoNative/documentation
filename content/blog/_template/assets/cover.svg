@@ -12,7 +12,7 @@
   </defs>
   <rect width="1200" height="630" fill="url(#nanoDarkBg)"/>
   <rect x="72" y="72" width="1056" height="486" rx="24" fill="transparent" stroke="#263244"/>
-  <rect x="104" y="92" width="246" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="104" y="84" width="246" height="5" rx="2.5" fill="url(#nanoGradient)"/>
   <rect x="900" y="528" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
   <g opacity=".9">
     <path d="M1076 504L1050 488L1024 504" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
