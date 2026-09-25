@@ -40,16 +40,8 @@ const post: BlogPost = {
             </p>
 
             <p>
-                You move work from the request path into a background job. You add retries, then add idempotency 
-                because retries create their own problems. You realize a hard delete should have been a soft delete.
-            </p>
-
-            <p>
                 So developer experience in large codebases has quietly meant something bigger than editor tooling.
-            </p>
-
-            <p>
-                How well can a developer manage the complexity of a large, growing codebase?
+                How well can a developer manage the complexity of a large growing codebase?
             </p>
 
             <h2>Clean code is a big part of DX</h2>
@@ -108,7 +100,7 @@ const post: BlogPost = {
             </p>
 
             <p>
-                Railix can reduce that time because the system has a visible surface. A developer can start with the
+                The Creator will reduce that time because the system has a visible surface. A developer can start with the
                 model. Product people can point to a route. Support can understand why an outcome happened. Engineering
                 can design the next feature.
             </p>
@@ -134,14 +126,12 @@ const post: BlogPost = {
             </p>
 
             <p>
-                Railix tries to make those decisions visible. That brings backend engineering 
-                closer to the way many other engineering disciplines communicate. You can inspect the model. 
-                You can discuss paths. You can reason about behavior before reading implementation.
-                You can review the shape of a system, not only the diff that changed it.
+                The Creator is going to make those decisions visible. You can inspect the model, discuss paths, reason about 
+                flows before getting into the steps. You can review the shape of a system not only the diff that changed it.
             </p>
 
             <p>
-                The developer is still essential. But the developer is no longer the only person capable of seeing the
+                The technical people are still essential but they are no longer the only person capable of seeing the
                 system.
             </p>
 
@@ -154,10 +144,7 @@ const post: BlogPost = {
 
             <p>
                 If more of the product can be modeled visually, verified through examples and compiled into running
-                software, then DX goes beyond code. Railix Creator will be the next generation IDE.
-            </p>
-
-            <p>
+                software, then DX goes beyond code. Railix Creator may well be the next generation Developer Environment.
                 It becomes the experience of shaping software as a system.
             </p>
 
