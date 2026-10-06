@@ -297,6 +297,26 @@ native-image -H:AbortOnTypeReachable=java.io.File -jar app.jar app`}</code>
                 teams spend their time on vulnerabilities with a production path.
             </p>
 
+            <p>
+                Railix is being built in that direction. The goal is to move most application shape out of runtime
+                discovery into a model the build reasons about. Railix plans to support third party steps in the future.
+                Those steps can bring in third party code, while artifact evidence tells whether affected code from a CVE
+                is present in the shipped binary. If that code is present, exploitability still needs a closer review of
+                the production path, attacker-controlled input and the CVE preconditions. Whether that CVE can be exploited
+                or not might require a closer inspection into the third party dependency code.
+            </p>
+
+            <p>
+                <a
+                    href="https://railix.mitbauen.space/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-nanoLinkBlue underline underline-offset-4 hover:text-blue-700"
+                >
+                    Learn more about Railix.
+                </a>
+            </p>
+
             <h2>Further Reading</h2>
             <ul>
                 <li>

@@ -95,8 +95,8 @@
     <text x="950" y="432" fill="#E8B7D4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">absent</text>
   </g>
 
-  <rect x="116" y="504" width="700" height="38" rx="7" fill="#0F172A" stroke="#334155"/>
-  <text x="142" y="529" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">CVE alert -> affected method -> shipped artifact: method absent</text>
+  <rect x="116" y="504" width="670" height="38" rx="7" fill="#0F172A" stroke="#334155"/>
+  <text x="142" y="529" fill="#CBD5E1" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">CVE alert -> affected method -> shipped artifact: method absent?</text>
 
   <g opacity=".9">
     <path d="M1062 524L1036 508L1010 524" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
