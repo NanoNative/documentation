@@ -300,10 +300,9 @@ native-image -H:AbortOnTypeReachable=java.io.File -jar app.jar app`}</code>
             <p>
                 Railix is being built in that direction. The goal is to move most application shape out of runtime
                 discovery into a model the build reasons about. Railix plans to support third party steps in the future.
-                Those steps can bring in third party code, while artifact evidence tells whether affected code from a CVE
-                is present in the shipped binary. If that code is present, exploitability still needs a closer review of
-                the production path, attacker-controlled input and the CVE preconditions. Whether that CVE can be exploited
-                or not might require a closer inspection into the third party dependency code.
+                Those steps can bring in third party code with vulnerabilities, while artifact evidence tells whether 
+                affected code from a CVE is present in the shipped binary. If that code is present, exploitability still
+                needs a closer review of the production path, attacker-controlled input and the CVE preconditions.
             </p>
 
             <p>
