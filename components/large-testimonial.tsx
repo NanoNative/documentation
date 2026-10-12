@@ -171,7 +171,7 @@ export default function LargeTestimonial() {
                         <span className="text-black">Abhiroop Basu</span>
                     </h3>
                     <div className="text-sm font-medium text-gray-500">
-                        <span className="text-gray-700">Systems Engineer</span>{" "}
+                        <span className="text-gray-700">Backend Technical Lead</span>{" "}
                         <ul className="flex gap-1">
                             <li>
                                 <Link
