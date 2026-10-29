@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CopyPostLink from "@/components/blog/copy-post-link";
+import BlogContent from "@/components/blog/content";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import { blogPosts, getBlogPost } from "@/content/blog/posts";
@@ -78,7 +79,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                         <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 md:py-10">
                             <Link
                                 href={siteLinks.blog}
-                                className="text-sm font-semibold text-nanoLinkBlue hover:text-blue-700"
+                                className="text-sm font-semibold text-nanoTextLink hover:text-blue-700"
                             >
                                 Blog
                             </Link>
@@ -115,14 +116,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                             {post.tags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="rounded bg-blue-50 px-2 py-1 text-xs font-medium text-nanoLinkBlue"
+                                    className="rounded bg-blue-50 px-2 py-1 text-xs font-medium text-nanoTextLink"
                                 >
                                     {tag}
                                 </span>
                             ))}
                         </div>
                         <div className="space-y-6 text-base leading-7 text-gray-700 [&_code]:rounded [&_code]:bg-gray-100 [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-sm [&_h2]:pt-6 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-gray-950 [&_li]:ml-6 [&_li]:list-disc [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:bg-gray-900 [&_pre]:p-4 [&_pre]:text-sm [&_pre]:leading-6 [&_pre]:text-gray-100 [&_pre_code]:bg-transparent [&_pre_code]:p-0">
-                            {post.content}
+                            <BlogContent>{post.content}</BlogContent>
                         </div>
                     </div>
                 </article>

@@ -1,5 +1,6 @@
 import isDxMovingAwayFromCode from "./is-dx-moving-away-from-code";
 import closedWorldSecurity from "./closed-world-security";
+import eventLifecycle from "./what-happens-after-you-send-an-event-in-nano";
 import devConsoleObservability from "./nano-developer-console-observability";
 import changingRuntimeConfig from "./changing-nano-configuration-at-runtime";
 import orchestrationToChoreography from "./from-orchestration-to-choreography";
@@ -9,6 +10,7 @@ import railwayApplicationPath from "./railway-oriented-programming";
 import type { BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+    eventLifecycle,
     closedWorldSecurity,
     isDxMovingAwayFromCode,
     railwayApplicationPath,
