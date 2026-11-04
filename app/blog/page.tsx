@@ -64,13 +64,13 @@ export default function BlogPage() {
                                             {post.tags.map((tag) => (
                                                 <span
                                                     key={tag}
-                                                    className="text-xs font-semibold uppercase tracking-wide text-nanoLinkBlue"
+                                                    className="text-xs font-semibold uppercase tracking-wide text-nanoTextLink"
                                                 >
                                                     {tag}
                                                 </span>
                                             ))}
                                         </div>
-                                        <h2 className="text-xl font-semibold leading-snug text-gray-950 group-hover:text-nanoLinkBlue">
+                                        <h2 className="text-xl font-semibold leading-snug text-gray-950 group-hover:text-nanoTextLink">
                                             {post.title}
                                         </h2>
                                         <p className="mt-2 text-sm leading-6 text-gray-600">{post.description}</p>

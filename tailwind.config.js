@@ -12,6 +12,7 @@ module.exports = {
         nanoPink: '#ff69b4',
         nanoBlue: '#A6C1EE',
         nanoLinkBlue: '#5799ea',
+        nanoTextLink: '#245FAD',
         nanoBlack: '#333333',
         nanoWhite: '#f9f9f9',
       },

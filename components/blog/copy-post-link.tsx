@@ -24,7 +24,7 @@ export default function CopyPostLink({ url }: CopyPostLinkProps) {
         <button
             type="button"
             onClick={copyLink}
-            className="inline-flex h-9 items-center gap-2 rounded border border-gray-300 bg-white px-3 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:text-gray-950"
+            className="inline-flex h-9 items-center gap-2 rounded border border-[#768298] bg-white px-3 text-sm font-medium text-gray-700 transition hover:border-[#536176] hover:text-gray-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nanoTextLink"
             aria-label="Copy link to this blog post"
         >
             {copyState === "copied" ? (
@@ -61,7 +61,9 @@ export default function CopyPostLink({ url }: CopyPostLinkProps) {
                     />
                 </svg>
             )}
-            {copyState === "copied" ? "Copied" : copyState === "failed" ? "Copy failed" : "Copy link"}
+            <span role="status" aria-live="polite">
+                {copyState === "copied" ? "Copied" : copyState === "failed" ? "Copy failed" : "Copy link"}
+            </span>
         </button>
     );
 }
