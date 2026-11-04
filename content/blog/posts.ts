@@ -7,9 +7,11 @@ import orchestrationToChoreography from "./from-orchestration-to-choreography";
 import nativeJavaServices from "./why-nano-fits-native-java-services";
 import railixPlayingAGame from "./what-if-building-systems-felt-like-playing-a-game";
 import railwayApplicationPath from "./railway-oriented-programming";
+import backToFlowcharts from "./back-to-flowcharts-with-railix";
 import type { BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+    backToFlowcharts,
     eventLifecycle,
     closedWorldSecurity,
     isDxMovingAwayFromCode,

@@ -1,0 +1,88 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Back to flowcharts with Railix</title>
+  <desc id="desc">An input is validated before saving. A successful save returns a response. A failed save checks whether retries remain, waits, and loops back to save again; exhausted retries return a failure. Invalid input is rejected.</desc>
+  <defs>
+    <linearGradient id="nanoGradient" x1="72" y1="0" x2="1128" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBC2EB"/>
+      <stop offset="1" stop-color="#A6C1EE"/>
+    </linearGradient>
+    <linearGradient id="nanoDarkBg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset=".5" stop-color="#334155"/>
+      <stop offset="1" stop-color="#475569"/>
+    </linearGradient>
+    <marker id="blueArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M2 2L10 6L2 10" stroke="#A6C1EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="pinkArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M2 2L10 6L2 10" stroke="#FBC2EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Shared Nano blog frame and accents. -->
+  <rect width="1200" height="630" fill="url(#nanoDarkBg)"/>
+  <rect x="72" y="62" width="1056" height="506" rx="14" fill="transparent" stroke="#263244"/>
+  <rect x="104" y="84" width="246" height="5" rx="2.5" fill="url(#nanoGradient)"/>
+  <rect x="884" y="544" width="172" height="3" rx="1.5" fill="url(#nanoGradient)" opacity=".72"/>
+  <g opacity=".9">
+    <path d="M1062 524L1036 508L1010 524" stroke="url(#nanoGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1062" cy="524" r="5" fill="#A6C1EE"/>
+    <circle cx="1036" cy="508" r="5" fill="#FF69B4"/>
+    <circle cx="1010" cy="524" r="5" fill="#5799EA"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="116" y="150" fill="#F9F9F9" font-size="48" font-weight="700">Back to flowcharts.</text>
+    <text x="116" y="188" fill="#CBD5E1" font-size="22">Coming full circle with Railix Creator.</text>
+
+    <!-- Success path and the bounded retry loop. -->
+    <g stroke="#A6C1EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#blueArrow)">
+      <path d="M226 292H270"/>
+      <path d="M412 292H476"/>
+      <path d="M596 292H646"/>
+      <path d="M798 292H926"/>
+      <path d="M646 434H600"/>
+      <path d="M538 405V325"/>
+    </g>
+    <g stroke="#FBC2EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#pinkArrow)">
+      <path d="M343 338V401"/>
+      <path d="M724 338V384"/>
+      <path d="M802 434H926"/>
+    </g>
+
+    <g fill="#202734" stroke-width="2.5">
+      <rect x="116" y="263" width="110" height="58" rx="29" stroke="#A6C1EE"/>
+      <path d="M343 246L412 292L343 338L274 292Z" stroke="#A6C1EE" stroke-linejoin="round"/>
+      <rect x="480" y="263" width="116" height="58" rx="10" stroke="#A6C1EE"/>
+      <path d="M724 246L798 292L724 338L650 292Z" stroke="#A6C1EE" stroke-linejoin="round"/>
+      <rect x="930" y="263" width="154" height="58" rx="29" stroke="#A6C1EE"/>
+      <rect x="278" y="405" width="130" height="58" rx="29" stroke="#FBC2EB"/>
+      <rect x="480" y="405" width="116" height="58" rx="10" stroke="#A6C1EE"/>
+      <path d="M724 388L802 434L724 480L646 434Z" stroke="#FBC2EB" stroke-linejoin="round"/>
+      <rect x="930" y="405" width="154" height="58" rx="29" stroke="#FBC2EB"/>
+    </g>
+
+    <g fill="#F9F9F9" font-size="23" text-anchor="middle">
+      <text x="171" y="300">Input</text>
+      <text x="343" y="299" font-size="21">Valid?</text>
+      <text x="538" y="300">Save</text>
+      <text x="724" y="299" font-size="21">Saved?</text>
+      <text x="1007" y="300">Respond</text>
+      <text x="343" y="442">Reject</text>
+      <text x="538" y="429" font-size="21">Wait</text>
+      <text x="538" y="450" font-size="17">then retry</text>
+      <text x="724" y="430" font-size="20">Retries</text>
+      <text x="724" y="451" font-size="20">left?</text>
+      <text x="1007" y="442">Failed</text>
+    </g>
+    <g fill="#F9F9F9" font-size="18">
+      <text x="444" y="278" text-anchor="middle">Yes</text>
+      <text x="862" y="278" text-anchor="middle">Yes</text>
+      <text x="356" y="377">No</text>
+      <text x="738" y="369">No</text>
+      <text x="621" y="420" text-anchor="middle">Yes</text>
+      <text x="864" y="420" text-anchor="middle">No</text>
+    </g>
+
+    <text x="116" y="540" fill="#CBD5E1" font-size="20">A familiar way to think. A model to build from.</text>
+  </g>
+</svg>
